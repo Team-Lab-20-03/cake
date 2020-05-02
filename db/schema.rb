@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_081943) do
+ActiveRecord::Schema.define(version: 2020_05_02_025752) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_081943) do
     t.string "phone_number"
     t.string "main_zip_code"
     t.text "main_address"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_081943) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_081943) do
     t.integer "product_id"
     t.integer "order_id"
     t.integer "quantity"
-    t.integer "create_status"
+    t.integer "create_status", default: 0, null: false
     t.integer "price"
     t.string "name"
     t.datetime "created_at", null: false
@@ -81,10 +81,10 @@ ActiveRecord::Schema.define(version: 2020_05_01_081943) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "ordered_status"
+    t.integer "ordered_status", default: 0, null: false
     t.integer "postage"
     t.integer "total_price"
-    t.boolean "is_credit"
+    t.boolean "is_credit", default: true, null: false
     t.string "delivery_name"
     t.string "delivery_zip_code"
     t.text "delivery_address"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_081943) do
     t.text "introduction"
     t.string "product_image"
     t.integer "price"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
