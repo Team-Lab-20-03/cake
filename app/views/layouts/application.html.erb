@@ -9,7 +9,35 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+<body>
+    <header>
+      <div class="row">
+        <% if customer_signed_in? %>
+        <p>ようこそ、<%= current_customer.last_name %>さん！</p>
+        <% end %>
+      </div>
+
+      <div class="nav">
+        <%= link_to(homes_top_path, method: :get do) %>トップ<% end %>
+        <%= link_to(homes_about_path, method: :get do) %>アバウト<% end %>
+
+        <% if customer_signed_in? %>
+          <%= link_to(customer_path, method: :get do) %>マイページ<% end %>
+          <%= link_to(products_path, method: :get do) %>商品一覧<% end %>
+          <%= link_to(current_customer.cart_items_path, method: :get do) %>カート<% end %>
+          <%= link_to(destroy_customer_session_path, method: :get do) %>ログアウト<% end %>
+        <% end %>
+
+        <% else %>
+          <%= link_to(products_path, method: :get do) %>商品一覧<% end %>
+          <%= link_to(new_customer_registration_path, method: :get do) %>新規登録<% end %>
+          <%= link_to(new_customer_session_path, method: :get do) %>ログイン<% end %>
+        <% end %>
+      </div>
+    </header>
+
     <%= yield %>
+
   </body>
 </html>
+

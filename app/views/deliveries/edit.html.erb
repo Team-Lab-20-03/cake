@@ -1,2 +1,24 @@
-<h1>Deliveries#edit</h1>
-<p>Find me in app/views/deliveries/edit.html.erb</p>
+
+<h1>配送先編集</h1>
+
+<%= form_for(@deliveries_address) do |f| %>
+
+	<div class="zip_code">
+		<%= f.label :zip_code, '郵便番号' %>
+		<%= f.text_field :zip_code %>
+	</div>
+
+	<div class="address">
+		<%= f.label :zip_code, '郵便番号' %>
+		<%= f.text_field :address %>
+	</div>
+
+	<div class="name">
+		<%= f.label :name, '宛名' %>
+		<%= f.text_field :name %>
+	</div>
+
+	<%= f.submit "編集する" %>
+
+<% end %>
+
