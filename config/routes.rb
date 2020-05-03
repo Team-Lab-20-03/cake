@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'customers/show'
+  get 'customers/edit'
+  get 'customers/bye_confirm'
+  get 'deliveries/index'
+  get 'deliveries/edit'
+  get 'cart_items/index'
+  get 'orders/index'
+  get 'orders/show'
+  get 'orders/new'
+  get 'orders/confirm'
+  get 'orders/thanks'
   devise_for :admins, controllers: {
   	sessions: "admins/sessions",
   	passwords: "admins/passwords",
