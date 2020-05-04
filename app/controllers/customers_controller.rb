@@ -21,7 +21,7 @@ end
 def bye_confirm
 
 	@customer = Customer.find(current_customer.id)
-    if @customer.update!
+    if @customer.update!(admittion_status: "bye_confirm")
 
       redirect_to customers_sign_out_path
   end

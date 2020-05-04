@@ -47,7 +47,7 @@ private
 
 def delivery_params
 
-    params.require(:delivery).permit(:name, :zip_code, :address)
+    params.require(:delivery).permit(:destination_name, :zip_code, :address)
 
 end
 
