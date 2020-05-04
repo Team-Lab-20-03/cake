@@ -16,21 +16,21 @@ class Order < ApplicationRecord
 		total
 	end
 
-	# 注文商品合計
-	# def product_sum
-	# 	total = 0
-	# 	ordered_products.each do |ordered_product|
-	# 		total += ordered_product.subtotal_price
-	# 	end
-	# 	total
-	# end
+	# 注文合計金額
+	def product_sum
+		total = 0
+		ordered_products.each do |ordered_product|
+			total += ordered_product.subtotal_price
+		end
+		total
+	end
 
 	# 請求金額
-	# def order_total
-	# 	total = 0
-	# 	ordered_products.each do |ordered_product|
-	# 		total += ordered_product.subtotal_price
-	# 	end
-	# 	toral + postage
-	# end
+	def order_total
+		total = 0
+		ordered_products.each do |ordered_product|
+			total += ordered_product.subtotal_price
+		end
+		toral + postage
+	end
 end
