@@ -2,7 +2,22 @@ class Admins::OrdersController < ApplicationController
 
 	# 注文履歴一覧
 	def index
-		@orders = Order.all
+		request_referer = Rails.application.routes.recognize_path(request.referer)
+		controller = request_referer[:controller]
+		action = request_referer[:action]
+
+		# トップページからは今日の注文を表示
+		if controller == "admins/home" && action == "top"
+			@orders = Order.where("created_at >= ?", Date.today)
+
+		# 会員詳細ページからは会員の注文履歴を表示
+		elsif controller == "admins/customers" && action == "show"
+			@orders = Order.where('customer_id = ?', request_referer[:id])
+
+		#	全ての注文を表示
+		else
+			@orders = Order.all
+		end
 	end
 
 	# 注文履歴詳細
