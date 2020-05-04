@@ -3,8 +3,9 @@ class Order < ApplicationRecord
 	has_many :orderd_products
 	belongs_to :customer
 
-	# 注文ステータス
+	# 注文ステータス 支払い方法
 	enum ordered_status: {入金待ち: 0, 入金確認: 1, 製作中: 2, 発送準備中: 3, 発送済み: 4}
+	enum is_credit: {銀行振込: true, クレジットカード: false}
 
 	# 注文個数
 	def total_count
