@@ -2,9 +2,19 @@ class ProductsController < ApplicationController
 
 def index
 
-	@genre = Genre.all
+    if
+    	params[:genre_id].present?
+     	@products = Product.where(genre_id: params[:genre_id])
+     	.page(params[:page]).per(18).reverse_order
 
-end
+      	@product_genre = @products.first.genre if @products.count > 0
+    else
+      	@products = Product
+        .joins(:genre).where(genres: {active_status: "有効"})
+        .page(params[:page]).per(18).reverse_order
+    end
+    	@genres = Genre.all
+  end
 
 def show
 

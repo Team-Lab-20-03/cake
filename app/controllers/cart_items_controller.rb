@@ -40,3 +40,5 @@ def destroy_all
 	redirect_to :index
 
 end
+
+end

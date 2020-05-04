@@ -1,0 +1,20 @@
+<div class="genre-list-bar">
+  
+  <table class="table table-bordered table-hover text-center ec-genre-list">
+    <tr>
+      <td>
+        <%= link_to "全商品を表示", products_path, class:"ec-genre-list-item" %>
+      </td>
+    </tr>
+    <% genres.each do |genre| %>
+      <% if genre.active_status == "有効" %>
+        <tr>
+          <td>
+            <%= link_to genre.name, products_path(genre_id: genre.id), class:"ec-genre-list-item" %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
+© 2020 GitHub, Inc.

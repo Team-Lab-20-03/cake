@@ -1,42 +1,50 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10">
 
-<h1>shopping cart</h1>
+		<h1>shopping cart</h1>
 
-<%= link_to "カートを空にする", cart_items_destroy_all_path %>
+		<%= link_to "カートを空にする", cart_items_destroy_all_path %>
 
-<table class="table">
-	<thead>
-		<tr>
-			<th>商品名</th>
-			<th>単価(税込)</th>
-			<th>数量</th>
-			<th>小計</th>
-			<th></th>
-		</tr>
-	</thead>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>商品名</th>
+					<th>単価(税込)</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th></th>
+				</tr>
+			</thead>
 
-	<tbody>
-		<% @customer.cart_items.each do |cart_item| %>
-		<tr>
-			<td><% cart_item.product.name %></td>
-			<td><% cart_item.product.price %></td>
-			<td>
-				<%= form_for(@cart_item) do |f| %>
-				<%= f.select :count, (1..10) %>
-				<%= f.submit "変更" %>
-			</td>
-			<td><% cart_item.product.price %></td>
-			<td><%= link_to "消去する", cart_item_path, method: :delete %></td>
-		</tr>
-	</tbody>
-</table>
+			<tbody>
+				<% @customer.cart_items.each do |cart_item| %>
+				<tr>
+					<td><% cart_item.product.name %></td>
+					<td><% cart_item.product.price %></td>
+					<td>
+						<%= form_for(@cart_item) do |f| %>
+						<%= f.select :count, (1..10) %>
+						<%= f.submit "変更" %>
+						<% end %>
+					</td>
+					<td><% cart_item.product.price %></td>
+					<td><%= link_to "消去する", cart_item_path, method: :delete %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
 
-<%= link_to "買い物を続ける", products_index_path %>
+		<%= link_to "買い物を続ける", products_path %>
 
-<table class="table">
-	<tbody>
-		<th>合計金額</th>
-		<td></td>
-	</tbody>
-</table>
+		<table class="table">
+			<tbody>
+				<th>合計金額</th>
+				<td></td>
+			</tbody>
+		</table>
 
-<%= link_to "情報入力に進む", orders_index_path %>
+		<%= link_to "情報入力に進む", orders_path %>
+	</div>
+</div>
+</div>

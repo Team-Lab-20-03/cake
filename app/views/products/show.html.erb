@@ -1,17 +1,24 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10">
 
-<%= attachment_image_tag @product_image %>
+		<%= attachment_image_tag @image.id %>
 
-<h1><%= @product.name %></h1>
+		<h1><%= @product.name %></h1>
 
-<p><%= @product.introduction %></p>
+		<p><%= @product.introduction %></p>
 
-<p><%= "¥(@product.price)" %>(税込)</p>
+		<p><%= "¥(@product.price)" %>(税込)</p>
 
-<%= form_for(@cart_item) do |f| %>
-	<%= f.select :count, (1..10) %>
-	<% if @product.is_active == true %>
-	<%= f.submit "カートに入れる" %>
-	<% else %>
-	<%= f.submit "売り切れ" %>
-	<% end %>
-<% end %>
+		<%= form_for(@cart_item) do |f| %>
+			<%= f.select :count, (1..10) %>
+			<% if @product.is_active == true %>
+			<%= f.submit "カートに入れる" %>
+			<% else %>
+			<%= f.submit "売り切れ" %>
+			<% end %>
+		<% end %>
+
+		</div>
+	</div>
+</div>

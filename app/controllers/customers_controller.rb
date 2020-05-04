@@ -14,9 +14,17 @@ def show
 
 end
 
+def update
+
 end
 
 def bye_confirm
+
+	@customer = Customer.find(current_customer.id)
+    if @customer.update!
+
+      redirect_to customers_sign_out_path
+  end
 end
 
 end
