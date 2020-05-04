@@ -1,2 +1,35 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10">
+      <div class="product-card-content">
+        <% if @products %>
+        <%# 商品一覧の場合（一覧、ジャンル検索）%>
+        <% if @product_genre.present? %>
+        <h2 class="top-genre-name-title"><%= @product_genre.name %></h2>
+        <p><%="全#{@products.total_count}件中" + "(#{@products.count}件表示)" %></p>
+        <%= render 'product_list', products: @products %>
+        <% else %>
+        <h2>商品の取り扱いがありません</h2>
+        <% end %>
+        <% elsif @q_products %>
+        <%# 検索の場合 %>
+        <div class="product-card-content">
+          <% if @q_products.empty? %>
+          <h3 class="top-empty-message">条件に合う商品が見つかりませんでした</h3>
+          <% else %>
+          <p><%="#{@q_products.total_count}件の商品がヒットしました" %></p>
+          <% end %>
+
+          <%= render 'product_list', products: @q_products %>
+
+          <div class="row text-center">
+            <%= paginate @q_products, class: "paginate" %>
+          </div>
+        </div>
+        <% else %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
