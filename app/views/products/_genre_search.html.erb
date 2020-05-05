@@ -1,18 +1,22 @@
-<div class="genre-list-bar">
-  <table class="table table-bordered table-hover text-center ec-genre-list">
-    <tr>
-      <td>
-        <%= link_to "全商品を表示", products_path, class:"ec-genre-list-item" %>
-      </td>
-    </tr>
-    <% genres.each do |genre| %>
-      <% if genre.active_status == "有効" %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10">
+      <table class="table table-bordered table-hover text-center ec-genre-list">
         <tr>
           <td>
-            <%= link_to genre.name, products_path(genre_id: genre.id), class:"ec-genre-list-item" %>
+            <%= link_to "全商品を表示", products_path %>
           </td>
         </tr>
-      <% end %>
-    <% end %>
-  </table>
+        <% genres.each do |genre| %>
+          <% if genre.is_active == "有効" %>
+            <tr>
+              <td>
+                <%= link_to genre.name, products_path(genre_id: genre.id) %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
