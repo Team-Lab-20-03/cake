@@ -12,20 +12,22 @@ class CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:id])
+	  @customer = Customer.find(params[:id])
     @customer.update(customer_params)
     redirect_to customers_path
   end
 
   def bye_confirm
-  @customer = Customer.find(params[:id])
+
+	@customer = Customer.find(params[:id])
     # @current_customer.update(params[:id])
     # redirect_to root_path
   end
 
   def bye_bye
-    @customer = Customer.find(current_customer.id)
-    @customer.update(is_active: '退会済み')
+  	@customer = Customer.find(current_customer.id)
+  	@customer.update(is_active: '退会済み')
+
     redirect_to root_path
   end
 
