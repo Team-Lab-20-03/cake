@@ -1,40 +1,36 @@
 <div class="container">
 	<div class="row">
-		<h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3>
-		<table class="table">
-			<tr>
-				<th>顧客ID</th>
-				<td><%= @customer.id %> <span class=""><%= @customer.is_active %>会員</span></td>
-			</tr>
-			<tr>
-				<th>氏名</th>
-				<td><%= @customer.last_name %>　<%= @customer.first_name %></td>
-				<td></td>
-			</tr>
-			<tr>
-				<th>フリガナ</th>
-				<td><% @customer.kana_last_name %>　<%= @customer.kana_first_name %></td>
-			</tr>
-			<tr>
-				<th>郵便番号</th>
-				<td><%= @customer.main_zip_code %></td>
-			</tr>
-			<tr>
-				<th>住所</th>
-				<td><%= @customer.main_address %></td>
-			</tr>
-			<tr>
-				<th>電話番号</th>
-				<td><%= @customer.phone_number %></td>
-			</tr>
-			<tr>
-				<th>メールアドレス</th>
-				<td><%= @customer.email %></td>
-			</tr>
-		</table>
-		<%= link_to '編集する', edit_admins_customer_path(@customer) %>
-
-		<!-- 下の、遷移先を編集しないといけないかも -->
-		<%= link_to '注文履歴一覧を見る', admins_order_path(@customer) %>
+		<h3><%= @customer.last_name %> <%= @customer.first_name %> さんの会員詳細</h3>
+		<div class="">
+			<label class="col-sm-2 text-right">会員ID</label>
+			<%= @customer.id %>　<label class="label label-info"><%= @customer.is_active %>会員</label>
+		</div>
+		<div class="col-xs-12">
+			<label class="col-sm-2 text-right">氏名</label>
+			<%= @customer.last_name %> <%= @customer.first_name %>
+		</div>
+		<div class="col-xs-12">
+			<label class="col-sm-2 text-right">フリガナ</label>
+			<%= @customer.kana_last_name %> <%= @customer.kana_first_name %>
+		</div>
+		<div class="col-xs-12">
+			<label class="col-sm-2 text-right">郵便番号</label>
+			<%= @customer.main_zip_code %>
+		</div>
+		<div class="col-xs-12">
+			<label class="col-sm-2 text-right">住所</label>
+			<%= @customer.main_address %>
+		</div>
+		<div class="col-xs-12">
+			<label class="col-sm-2 text-right">電話番号</label>
+			<%= @customer.phone_number %>
+		</div>
+		<div class="col-xs-12">
+			<label class="col-sm-2 text-right">メールアドレス</label>
+			<%= @customer.email %>
+		</div>
+		<div class="col-sm-2"></div>
+		<%= link_to '編集する', edit_admins_customer_path(@customer), class: 'btn btn-primary' %>
+		<%= link_to '注文履歴一覧', admins_orders_path(@customer), class: 'btn btn-default' %>
 	</div>
 </div>
