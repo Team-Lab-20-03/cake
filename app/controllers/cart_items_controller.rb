@@ -27,18 +27,22 @@ end
 
 def destroy
 
-	@cart_item = CartItem.find(params[:id])
-	@cart_item.destroy
-	@customer = Customer.find(current_customer.id)
-	redirect_to :index
+	cart_item = CartItem.find(params[:id])
+	if cart_item.destroy
+		redirect_to cart_items_path
+	else
+		redirect_to :index
+	end
 end
 
 def destroy_all
 
-	@customer = Customer.find(current_customer.id)
-	@customer.cart_items.destroy_all
-	redirect_to :index
-
+	customer = Customer.find(current_customer.id)
+	if customer.cart_items.destroy_all
+		redirect_to cart_items_path
+	else
+		redirect_to :index
+	end
 end
 
 end
