@@ -63,18 +63,16 @@
 		<div class="">
 			<table class="table">
 				<tr>
-					<!-- ordered_productsモデルで合計金額を定義 -->
 					<th>商品合計金額</th>
-					<td>円</td>
+					<td><% @ordered_products.subtotal_price %>円</td>
 				</tr>
 				<tr>
 					<th>送料</th>
 					<td><%= @order.postage %></td>
 				</tr>
 				<tr>
-					<!-- ordersモデルで請求金額を定義 -->
 					<th>請求金額</th>
-					<td></td>
+					<td><%= @order.order_total %></td>
 				</tr>
 			</table>
 		</div>
