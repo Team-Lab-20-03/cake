@@ -31,6 +31,6 @@
 		</div>
 		<div class="col-sm-2"></div>
 		<%= link_to '編集する', edit_admins_customer_path(@customer), class: 'btn btn-primary' %>
-		<%= link_to '注文履歴一覧', admins_orders_path(@customer), class: 'btn btn-default' %>
+		<%= link_to '注文履歴一覧', admins_orders_path(@customer.orders), class: 'btn btn-default' %>
 	</div>
 </div>
