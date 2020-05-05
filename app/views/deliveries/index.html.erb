@@ -59,13 +59,13 @@
 							<td><%= customer_delivery.zip_code %></td>
 							<td><%= customer_delivery.address %></td>
 							<td><%= customer_delivery.destination_name %></td>
-							<td><%= link_to "編集する", edit_delivery_path(customer_delivery.id) %></td>
-							<td><%= link_to "削除する", delivery_path(customer_delivery.id), method: :delete %></td>
+							<td><%= link_to "編集する", edit_delivery_path(customer_delivery.id), class:"btn btn-success" %></td>
+							<td><%= link_to "削除する", delivery_path(customer_delivery.id), method: :delete, class:"btn btn-danger" %></td>
 						</tr>
 						<% end %>
 					</tbody>
 				</table>
-					<%= link_to "マイページへ戻る", customer_path(current_customer.id)%>
+					<%= link_to "マイページへ戻る", customer_path(current_customer.id), class:"btn btn-default" %>
 			</div>
 		</div>
 	</div>
