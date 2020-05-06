@@ -35,8 +35,29 @@ class Order < ApplicationRecord
 	end
 
 	# 税込価格
-	def tax_price
-		(price * Constants::TAX).round
+	#def tax_price
+		#(price * Constants::TAX).round
+	#end
+
+	def cart_sum(user)
+		total = 0
+		user.cart_items.each do |cart_product|
+			total += cart_product.product.price
+		end
+		total
+	end
+
+	def total(user)
+		total = 0
+		user.cart_items.each do |cart_product|
+			total += cart_product.product.price
+		end
+		total + self.postage_price
+	end
+
+	# 送料
+	def postage_price
+		postage_price = 800
 	end
 
 end
