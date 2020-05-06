@@ -2,60 +2,62 @@
 <!-- render部分テンプレート -->
 
 <div class="container">
-  <div class="row">
-    <h3>マイページ</h3></br>
+  <!-- <div class="row"> -->
+    <h3><mark>マイページ</mark></h3>
 
+   <div class="row">
     <div class="group">
-      <label class="col-sm-2 text-center">お客様登録情報</label>
-        <%= link_to "編集する", edit_customer_path(current_customer.id), class:"btn btn-primary" %>
-        <%= link_to "パスワードを変更する", new_customer_password_path(current_customer.id), class:"btn btn-primary" %>
+      <label class="col-sm-4 text-center">お客様登録情報</label>
+
+        <%= link_to "編集する", edit_customer_path(current_customer.id), class:"btn btn-warning btn-xs", class:"glyphicon glyphicon-pencil" %>
+        <%= link_to "パスワードを変更する", new_customer_password_path(current_customer.id), class:"btn btn-warning btn-xs" %>
     </div></br>
 
     <%= form_for (@customer), html: { class: 'form-horizontal' } do |f| %>
-
+<!--     <table> -->
       <div class="form-group">
-        <label class="col-sm-2 text-center">氏名</label>
+        <label class="col-sm-4 text-center">氏名</label>
         <div class="col-xs-2">
         <%= current_customer.last_name %>　<%= current_customer.first_name %></div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 text-center">フリガナ</label>
+        <label class="col-sm-4 text-center">フリガナ</label>
         <div class="col-xs-2">
         <%= current_customer.kana_last_name %>　<%= current_customer.kana_first_name %></div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 text-center">メールアドレス</label>
+        <label class="col-sm-4 text-center">メールアドレス</label>
         <div class="col-xs-2">
         <%= current_customer.email %></div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 text-center">郵便番号</label>
+        <label class="col-sm-4 text-center">郵便番号</label>
         <div class="col-xs-4">
         <%= current_customer.main_zip_code %></div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 text-center">住所</label>
+        <label class="col-sm-4 text-center">住所</label>
         <div class="col-xs-2">
           <%= current_customer.main_address %></div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 text-center">電話番号</label>
+        <label class="col-sm-4 text-center">電話番号</label>
         <div class="col-xs-2">
           <%= current_customer.phone_number %></div>
       </div>
 
       <% end %></br>
+    <!-- </table> -->
 
+    <div class="row">
       <div class="group">
-        <label class="col-sm-2 text-center">配送先</label>
-          <%= link_to "一覧を見る", deliveries_path(current_customer.id), class:"btn btn-primary" %>
+        <label class="col-sm-3 text-center">配送先</label>
+          <%= link_to "一覧を見る", deliveries_path(current_customer.id), class:"btn btn-info btn-xs" %>
       </div></br>
 
       <div class="group">
-        <label class="col-sm-2 text-center">注文履歴</label>
-          <%= link_to "一覧を見る", orders_path(current_customer.id), class:"btn btn-primary" %>
+        <label class="col-sm-3 text-center">注文履歴</label>
+          <%= link_to "一覧を見る", orders_path(current_customer.id), class:"btn btn-info btn-xs" %>
       </div>
-
+    </div>
 </div>
-</div>
->>>>>>> b575790cbf93b65072ebd3c7b0b6e68d3a5fa176

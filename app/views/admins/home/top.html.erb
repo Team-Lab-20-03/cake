@@ -3,8 +3,8 @@
     <h4>管理者画面</h4>
 
   <div class="row">
-    <h3>本日の注文件数　　
-    	<u><%= link_to "888", admins_orders_path %></u>  件</h3><!--　本日の注文件数を表示させたい -->
+    <h3>本日の注文件数
+    	<u><%= link_to @orders.count, admins_orders_path %></u>  件</h3><!--　本日の注文件数を表示させたい -->
   </div>
 
   </div>
