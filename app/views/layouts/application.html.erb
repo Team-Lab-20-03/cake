@@ -17,7 +17,6 @@
 
           <div class="nav">
             <%= link_to root_path,method: :get do %><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</button><% end %>
-            <%= link_to home_about_path,method: :get do %><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> About</button><% end %>
 
             <% if admin_signed_in? %>
               <%= link_to admin_products_path, method: :get do %>商品一覧<% end %>
