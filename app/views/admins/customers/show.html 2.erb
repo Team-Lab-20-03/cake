@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<h3><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h3>
+		<table class="table">
+			<tr>
+				<th>顧客ID</th>
+				<td><%= @customer.id %> <span class=""><%= @customer.is_active %>会員</span></td>
+			</tr>
+			<tr>
+				<th>氏名</th>
+				<td><%= @customer.last_name %>　<%= @customer.first_name %></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>フリガナ</th>
+				<td><% @customer.kana_last_name %>　<%= @customer.kana_first_name %></td>
+			</tr>
+			<tr>
+				<th>郵便番号</th>
+				<td><%= @customer.main_zip_code %></td>
+			</tr>
+			<tr>
+				<th>住所</th>
+				<td><%= @customer.main_address %></td>
+			</tr>
+			<tr>
+				<th>電話番号</th>
+				<td><%= @customer.phone_number %></td>
+			</tr>
+			<tr>
+				<th>メールアドレス</th>
+				<td><%= @customer.email %></td>
+			</tr>
+		</table>
+		<%= link_to '編集する', edit_admins_customer_path(@customer) %>
+
+		<!-- 下の、遷移先を編集しないといけないかも -->
+		<%= link_to '注文履歴一覧を見る', admins_order_path(@customer) %>
+	</div>
+</div>
