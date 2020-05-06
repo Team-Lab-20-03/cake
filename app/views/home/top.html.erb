@@ -1,1 +1,49 @@
-<h1>トップページ</h1>
+<!-- customers/top.html.erb -->
+<!-- ヘッダー挿入 -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" style="background-color: orange;">
+     <!-- renderで部分テンプレート入る？ジャンル検索コーナー -->
+
+      <h3>ジャンル検索</h3>
+         <p>ケーキ<br>
+            焼き菓子<br>
+            プリン<br>
+            キャンディ</p>
+    </div>
+
+
+
+  <!-- <div class="row"> -->
+    <div class="col-md-9" style="background-color: palegreen;">
+      <div class="row">
+
+        <div class="introduction", style="border: 4px double #ff6699;font-size: 90%; padding: 20px;", align="center">
+          <div><strong>ようこそ、NaganoCakeへ！</strong><br>
+           このサイトは、ケーキ販売のオンラインストアです。<br>
+           会員でない方でも商品の閲覧は可能です。<br>
+           購入には会員登録が必要になります。</div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="recommend">
+          <h2><strong>オススメ商品</strong></h2>
+
+      <!-- 商品のeachメソッド入れる -->
+
+      <!-- attachmentのやつ入れたい。 -->
+          <td><strong>商品名</strong></td>
+          <td><strong>¥</strong></td><!-- 価格を表示させたい -->
+      <!-- eachメソッドのend入れる -->
+
+        <ins><%= link_to "もっと見る", products_path %></ins>
+
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+</div>

@@ -1,13 +1,13 @@
 
 <% products.each do |product| %>
 	<%= link_to product_path(product.id) do %>
-		<%= attachment_image_tag product %>
+		<%= attachment_image_tag product_image %>
 		<p><%= product.name %></p>
-		<p><%= "¥(product.price)" %></p>
+		<p><%= "¥#{product.price}" %></p>
 
-	<% if product.is_active == false %>
-	<p>売り切れ</p>
+		<% if product.is_active == false %>
+		<p>売り切れ</p>
+		<% end %>
+
 	<% end %>
-
-<% end %>
 <% end %>

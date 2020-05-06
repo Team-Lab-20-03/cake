@@ -1,47 +1,57 @@
 <div class="container">
 	<div class="row">
-		<h3><%= @customer.last_name %> <%= @customer.first_name %>の会員情報編集</h3>
-		<%= form_for [:admins, @customer] do |f| %>
-			<table class="container">
-				<tr>
-					<th>会員ID</th>
-					<td><%= @customer.id %></td>
-				</tr>
-				<tr>
-					<th>氏名</th>
-					<td><%= f.text_field :last_name %> <%= f.text_field :first_name %></td>
-				</tr>
-				<tr>
-					<th>フリガナ</th>
-					<td><%= f.text_field :kana_last_name %> <%= f.text_field :kana_first_name %></td>
-				</tr>
-				<tr>
-					<th>郵便番号</th>
-					<td><%= f.text_field :main_zip_code %></td>
-				</tr>
-				<tr>
-					<th>住所</th>
-					<td><%= f.text_area :main_address %></td>
-				</tr>
-				<tr>
-					<th>電話番号</th>
-					<td><%= f.text_field :phone_number %></td>
-				</tr>
-				<tr>
-					<th>メールアドレス</th>
-					<td><%= f.text_field :email %></td>
-				</tr>
-				<tr>
-					<th>会員ステータス</th>
-					<td>
-						<%= f.radio_button :is_active, :有効, checked: true %>
-				    <%= f.label :name, "有効", style: "display: inline-block;" %>
-				    <%= f.radio_button :is_active, :退会済み %>
-				    <%= f.label :name, "退会済み", style: "display: inline-block;" %>
-					</td>
-				</tr>
-			</table>
-			<%= f.submit %>
+		<h3><%= @customer.last_name %> <%= @customer.first_name %> さんの会員情報編集</h3>
+		<%= form_for [:admins, @customer], html: { class: 'form-horizontal' } do |f| %>
+			<div class="form-group">
+				<label class="col-sm-2 text-right">会員ID</label>
+				<div class="col-xs-1"><%= @customer.id %></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 text-right">氏名</label>
+				<div class="col-xs-2">
+					<%= f.text_field :last_name, class: 'form-control' %></div>
+				<div class="col-xs-2">
+					<%= f.text_field :first_name, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 text-right">フリガナ</label>
+				<div class="col-xs-2">
+					<%= f.text_field :kana_last_name, class: 'form-control' %></div>
+				<div class="col-xs-2">
+					<%= f.text_field :kana_first_name, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 text-right">郵便番号</label>
+				<div class="col-xs-2">
+					<%= f.text_field :main_zip_code, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 text-right">住所</label>
+				<div class="col-xs-4">
+				<%= f.text_area :main_address, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 text-right">電話番号</label>
+				<div class="col-xs-2">
+					<%= f.text_field :phone_number, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 text-right">メールアドレス</label>
+				<div class="col-xs-2">
+					<%= f.text_field :email, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 text-right">会員ステータス</label>
+				<div class="col-xs-3">
+					<%= f.radio_button :is_active, :有効, checked: true %>
+			    <%= f.label :name, "有効", style: "display: inline-block;" %>
+			    <%= f.radio_button :is_active, :退会済み %>
+			    <%= f.label :name, "退会済み", style: "display: inline-block;" %>	
+		    </div>
+			</div>
+			<div class="col-sm-2"></div>
+			<%= f.submit "変更保存", class: 'btn btn-primary' %>
+			<%= link_to "会員詳細に戻る", admins_customer_path(@customer), class: 'btn btn-default' %>
 		<% end %>
 	</div>
 </div>

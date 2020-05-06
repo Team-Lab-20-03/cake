@@ -1,2 +1,54 @@
-<h1>カスタマーマイページ</h1>
+<!-- customers/show.html.erb -->
+<!-- render部分テンプレート -->
+
+
+<h4>マイページ</h4>
+
+  <div><strong>お客さま登録情報</strong>
+  <%= link_to "編集する", edit_customer_path(current_customer.id), class:"btn btn-primary" %>
+  <%= link_to "パスワードを変更する", edit_customer_password_path(current_customer.id), class:"btn btn-primary" %>
+  </div>
+
+ <div class="row">
+  <div class="col-xs-8">
+
+    <table class="table">
+      <tr>
+        <td>氏名</td>
+        <td><%= current_customer.last_name %>　<%= current_customer.first_name %></td><!-- fullnameでフルネーム表示できるはず -->
+      </tr>
+
+      <tr>
+        <td>カナ</td>
+        <td><%= current_customer.kana_last_name %>　<%= current_customer.kana_first_name %></td><!-- 本当はカナフルネーム表示させたい...! -->
+      </tr>
+
+      <tr>
+        <td>郵便番号</td>
+        <td><%= current_customer.main_zip_code %></td>
+      </tr>
+
+      <tr>
+        <td>住所</td>
+        <td><%= current_customer.main_address %></td>
+      </tr>
+
+      <tr>
+        <td>電話番号</td>
+        <td><%= current_customer.phone_number %></td>
+      </tr>
+
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= current_customer.email %></td>
+      </tr>
+    </table>
+
+  </div>
+ </div>
+
+  <div><strong>配送先</strong>
+    　　<%= link_to "一覧を見る", deliveries_path(current_customer.id), class:"btn btn-primary" %></div>
+  <div><strong>注文履歴</strong>
+    　<%= link_to "一覧を見る", orders_path(current_customer.id), class:"btn btn-primary" %></div>
 

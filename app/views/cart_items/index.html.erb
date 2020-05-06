@@ -4,7 +4,9 @@
 
 		<h1>カート内アイテム</h1>
 
-		<%= link_to "カートを空にする", cart_items_destroy_all_path %>
+		<div class="destroy_all">
+			<%= link_to "カートを空にする",cart_items_destroy_all_path, method: :delete, class:"btn btn-danger" %>
+		</div>
 
 		<table class="table">
 			<thead>
@@ -24,18 +26,20 @@
 					<td><% cart_item.product.price %></td>
 					<td>
 						<%= form_for(@cart_item) do |f| %>
-						<%= f.select :count, (1..10) %>
-						<%= f.submit "変更" %>
+							<div class="form">
+								<%= f.select :count, (1..10), class:"form-control"%>
+								<%= f.submit "変更", class:"btn btn-primary"%>
+							</div>
 						<% end %>
 					</td>
 					<td><% cart_item.product.price %></td>
-					<td><%= link_to "消去する", cart_item_path, method: :delete %></td>
+					<td><%= link_to "消去する", cart_item_path, method: :delete, class:"btn btn-danger" %></td>
 				</tr>
 				<% end %>
 			</tbody>
 		</table>
 
-		<%= link_to "買い物を続ける", products_path %>
+		<%= link_to "買い物を続ける", products_path, class:"btn btn-default" %>
 
 		<table class="table">
 			<tbody>
@@ -44,7 +48,7 @@
 			</tbody>
 		</table>
 
-		<%= link_to "情報入力に進む", orders_path %>
+		<%= link_to "情報入力に進む", new_order_path, class:"btn btn-default" %>
 	</div>
 </div>
 </div>
