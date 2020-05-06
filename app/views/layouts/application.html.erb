@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-xs-10">
           <% if customer_signed_in? %>
-            <%= current_customer.last_name %>さん
+            <p><%= current_customer.last_name + " " + current_customer.first_name %>さん</p>
           <% end %>
 
           <div class="nav">
