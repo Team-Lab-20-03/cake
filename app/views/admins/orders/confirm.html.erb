@@ -17,7 +17,7 @@
 							<td><%= attachment_image_tag product, :image %><%= ordered_prduct.product.name %></td>
 							<td><%= orderd_product.product.tax_price %></td>
 							<td><%= order_product.quantity %></td>
-							<td><%= order_product.product.tax_price * order_product.quantity %></td>
+							<td><%= order_product.subtotal_price %></td>
 						</tr>
 					<% end %>
 				</tbody>
@@ -54,6 +54,9 @@
 		<%= @order.delivery_address %><br />
 		<%= @order.delivery_name %><br />
 	</div>
+
+
+
 	<div class="row">
 		<%= form_for(@order, url: orders_path) do |f| %>
 			<%= f.hidden_field :total_price, @order.order_total %>
