@@ -1,0 +1,70 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-7 offset-1">
+			<h3>注文情報確認</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>商品名</th>
+						<th>単価(税込)</th>
+						<th>数量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% current_customer.cart_items.each do |order_product| %>
+						<tr>
+							<td><%= attachment_image_tag product, :image %><%= ordered_prduct.product.name %></td>
+							<td><%= orderd_product.product.tax_price %></td>
+							<td><%= order_product.quantity %></td>
+							<td><%= order_product.subtotal_price %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div><!--col-7-->
+		<div class="col-xs-3">
+			<table class="table">
+				<tbody class="table">
+					<tr>
+						<td>送料</td>
+						<td><%= @order.postsge + "円" %></td>
+					</tr>
+					<tr>
+						<td>商品合計</td>
+						<td><%= @order.product_sum + "円" %></td>
+					</tr>
+					<tr>
+						<td>請求金額</td>
+						<td><%= @order.order_total + "円" %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!--col3-->
+
+
+	</div><!--row-->
+	<div class="row">
+		<h4>支払方法</h4>
+		<%= @order.is_credit %>
+	</div>
+	<div class="row">
+		<h4>お届け先</h4>
+		<%= "〒" + @order.delivery_zip_code %><br />
+		<%= @order.delivery_address %><br />
+		<%= @order.delivery_name %><br />
+	</div>
+
+
+
+	<div class="row">
+		<%= form_for(@order, url: orders_path) do |f| %>
+			<%= f.hidden_field :total_price, @order.order_total %>
+			<%= f.hidden_field :is_credit, @order.is_credit %>
+			<%= f.hidden_field :delivery_name, @order.delivery_name %>
+			<%= f.hidden_field :delivery_zip_code, @order.delivery_zip_code %>
+			<%= f.hidden_field :delivery_address, @order.delivery_address %>
+			<%= f.submit "購入を確定する" %>
+		<% end %>
+	</div>
+</div>
