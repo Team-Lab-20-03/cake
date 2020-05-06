@@ -31,6 +31,12 @@ class Order < ApplicationRecord
 		ordered_products.each do |ordered_product|
 			total += ordered_product.subtotal_price
 		end
-		toral + postage
+		total + postage
 	end
+
+	# 税込価格
+	def tax_price
+		(price * Constants::TAX).round
+	end
+
 end
