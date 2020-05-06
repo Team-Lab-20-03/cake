@@ -15,6 +15,7 @@
           <div class="col-sm-3">
             <%= f.text_field :first_name, class: 'form-control' %></div>
         </div>
+
         <div class="form-group">
           <label class="col-sm-3">フリガナ</label>
           <div class="col-sm-1">(セイ)</div>
@@ -24,18 +25,21 @@
           <div class="col-sm-3">
             <%= f.text_field :kana_first_name, class: 'form-control' %></div>
         </div>
+
         <div class="form-group">
           <label class="col-sm-3">メールアドレス</label>
           <div class="col-sm-1"></div>
           <div class="col-sm-3">
-            <%= f.text_field :last_name, class: 'form-control' %></div>
+            <%= f.text_field :email, class: 'form-control' %></div>
         </div>
+
         <div class="form-group">
           <label class="col-sm-3">郵便番号（ハイフンなし）</label>
           <div class="col-sm-1"></div>
           <div class="col-sm-3">
             <%= f.text_field :main_zip_code, class: 'form-control' %></div>
         </div>
+
         <div class="form-group">
           <label class="col-sm-3">住所</label>
           <div class="col-sm-1"></div>
@@ -48,27 +52,32 @@
           <div class="col-sm-3">
             <%= f.text_field :phone_number, class: 'form-control' %></div>
         </div>
+
         <div class="form-group">
           <label class="col-sm-3">パスワード（6文字以上）</label>
           <div class="col-sm-1"></div>
           <div class="col-sm-3">
             <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %></div>
         </div>
+
         <div class="form-group">
           <label class="col-sm-3">パスワード（確認用）</label>
           <div class="col-sm-1"></div>
           <div class="col-sm-3">
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %></div>
         </div>
-        <div class="col-sm-12 text-center">
-        <%= f.submit '新規登録', class: 'btn btn-success col-xs-4 col-xs-offset-4' %></div>
+
+        <div class="col-sm-12">
+          <%= f.submit '新規登録', class: 'btn btn-success col-sm-4 col-sm-offset-4' %>
+        </div>
       <% end %>
-      <div class="col-xs-12">
+
+      <div class="col-sm-12">
         <h4><strong>既に登録済みの方</strong></h4>
         <%= link_to "こちら", new_customer_session_path %>からログインしてください
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
 
