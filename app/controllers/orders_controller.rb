@@ -6,25 +6,13 @@ class OrdersController < ApplicationController
   end
 
   def show
-
     @order = Order.find(params[:id])
-
   end
 
   def new
-
     @order = Order.new
     @delivery = Delivery.new
     @orders = current_customer.order
-  end
-
-  def show
-    @order = Order.find(params[:id])
-  end
-
-  def new
-    @order = Order.new
-    @order. = Delivery.new
   end
 
   def confirm  #new.htmlの確認画面へのボタン
@@ -40,7 +28,6 @@ class OrdersController < ApplicationController
       @order.delivery_name = Delivery.find(order.delivery.id).destination_name
     end
   end
-
 
   def create  #confirm.htmlの注文決定ボタン
     @order = Order.new(order_params)
