@@ -1,45 +1,47 @@
 <!-- customers/show.html.erb -->
 <!-- render部分テンプレート -->
 
+<div class="container">
 
-<h4>マイページ</h4>
+
+<h3><strong>マイページ</strong></h3>
 
   <div><strong>お客さま登録情報</strong>
-  <%= link_to "編集する", edit_customer_path(current_customer.id), class:"btn btn-primary" %>
-  <%= link_to "パスワードを変更する", edit_customer_password_path(current_customer.id), class:"btn btn-primary" %>
+  <%= link_to "編集する", edit_customer_path(current_customer.id), class:"btn btn-info btn-xs" %>
+  <%= link_to "パスワードを変更する", new_customer_password_path(current_customer.id), class:"btn btn-info btn-xs" %>
   </div>
 
  <div class="row">
   <div class="col-xs-8">
 
-    <table class="table">
+    <table class="table table-bordered", class:width="500">
       <tr>
-        <td>氏名</td>
+        <th style="background-color: #EEEEEE;">氏名</th>
         <td><%= current_customer.last_name %>　<%= current_customer.first_name %></td><!-- fullnameでフルネーム表示できるはず -->
       </tr>
 
       <tr>
-        <td>カナ</td>
+        <th style="background-color: #EEEEEE;">カナ</th>
         <td><%= current_customer.kana_last_name %>　<%= current_customer.kana_first_name %></td><!-- 本当はカナフルネーム表示させたい...! -->
       </tr>
 
       <tr>
-        <td>郵便番号</td>
+        <th style="background-color: #EEEEEE;">郵便番号</th>
         <td><%= current_customer.main_zip_code %></td>
       </tr>
 
       <tr>
-        <td>住所</td>
+        <th style="background-color: #EEEEEE;">住所</th>
         <td><%= current_customer.main_address %></td>
       </tr>
 
       <tr>
-        <td>電話番号</td>
+        <th style="background-color: #EEEEEE;">電話番号</th>
         <td><%= current_customer.phone_number %></td>
       </tr>
 
       <tr>
-        <td>メールアドレス</td>
+        <th style="background-color: #EEEEEE;">メールアドレス</th>
         <td><%= current_customer.email %></td>
       </tr>
     </table>
@@ -48,7 +50,8 @@
  </div>
 
   <div><strong>配送先</strong>
-    　　<%= link_to "一覧を見る", deliveries_path(current_customer.id), class:"btn btn-primary" %></div>
+    　　<%= link_to "一覧を見る", deliveries_path(current_customer.id), class:"btn btn-warning btn-sm" %></div>
   <div><strong>注文履歴</strong>
-    　<%= link_to "一覧を見る", orders_path(current_customer.id), class:"btn btn-primary" %></div>
+    　<%= link_to "一覧を見る", orders_path(current_customer.id), class:"btn btn-warning btn-sm" %></div>
 
+</div>
