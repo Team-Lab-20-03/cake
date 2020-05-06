@@ -2,15 +2,15 @@
 	<div class="row">
 		<div class="col-xs-10">
 
-		<%= attachment_image_tag @product_image :image, :size => '200x200'%>
+		<%= attachment_image_tag @product_image :image, :size => '280x280'%>
 
 		<h1><%= @product.name %></h1>
 		<p><%= @product.introduction %></p>
-		<p><%= "¥#{(@product.price + tax_price}" %>(税込)</p>
+		<p><%= "¥#{(@product.price.tax_price}" %>(税込)</p>
 
 		<%= form_for(@cart_item) do |f| %>
 
-			<%= f.select :count, (1..10) %>
+			<%= f.select :count,(1..10), class: "form-control product-show-form-control" %>
 
 			<% if @product.is_active == true %>
 			<%= f.submit "カートに入れる" %>

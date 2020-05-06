@@ -2,56 +2,60 @@
 <!-- render部分テンプレート -->
 
 <div class="container">
+  <div class="row">
+    <h3>マイページ</h3></br>
 
+    <div class="group">
+      <label class="col-sm-2 text-center">お客様登録情報</label>
+        <%= link_to "編集する", edit_customer_path(current_customer.id), class:"btn btn-primary" %>
+        <%= link_to "パスワードを変更する", new_customer_password_path(current_customer.id), class:"btn btn-primary" %>
+    </div></br>
 
-<h3><strong>マイページ</strong></h3>
+    <%= form_for (@customer), html: { class: 'form-horizontal' } do |f| %>
 
-  <div><strong>お客さま登録情報</strong>
-  <%= link_to "編集する", edit_customer_path(current_customer.id), class:"btn btn-info btn-xs" %>
-  <%= link_to "パスワードを変更する", new_customer_password_path(current_customer.id), class:"btn btn-info btn-xs" %>
-  </div>
+      <div class="form-group">
+        <label class="col-sm-2 text-center">氏名</label>
+        <div class="col-xs-2">
+        <%= current_customer.last_name %>　<%= current_customer.first_name %></div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 text-center">フリガナ</label>
+        <div class="col-xs-2">
+        <%= current_customer.kana_last_name %>　<%= current_customer.kana_first_name %></div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 text-center">メールアドレス</label>
+        <div class="col-xs-2">
+        <%= current_customer.email %></div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 text-center">郵便番号</label>
+        <div class="col-xs-4">
+        <%= current_customer.main_zip_code %></div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 text-center">住所</label>
+        <div class="col-xs-2">
+          <%= current_customer.main_address %></div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 text-center">電話番号</label>
+        <div class="col-xs-2">
+          <%= current_customer.phone_number %></div>
+      </div>
 
- <div class="row">
-  <div class="col-xs-8">
+      <% end %></br>
 
-    <table class="table table-bordered", class:width="500">
-      <tr>
-        <th style="background-color: #EEEEEE;">氏名</th>
-        <td><%= current_customer.last_name %>　<%= current_customer.first_name %></td><!-- fullnameでフルネーム表示できるはず -->
-      </tr>
+      <div class="group">
+        <label class="col-sm-2 text-center">配送先</label>
+          <%= link_to "一覧を見る", deliveries_path(current_customer.id), class:"btn btn-primary" %>
+      </div></br>
 
-      <tr>
-        <th style="background-color: #EEEEEE;">カナ</th>
-        <td><%= current_customer.kana_last_name %>　<%= current_customer.kana_first_name %></td><!-- 本当はカナフルネーム表示させたい...! -->
-      </tr>
-
-      <tr>
-        <th style="background-color: #EEEEEE;">郵便番号</th>
-        <td><%= current_customer.main_zip_code %></td>
-      </tr>
-
-      <tr>
-        <th style="background-color: #EEEEEE;">住所</th>
-        <td><%= current_customer.main_address %></td>
-      </tr>
-
-      <tr>
-        <th style="background-color: #EEEEEE;">電話番号</th>
-        <td><%= current_customer.phone_number %></td>
-      </tr>
-
-      <tr>
-        <th style="background-color: #EEEEEE;">メールアドレス</th>
-        <td><%= current_customer.email %></td>
-      </tr>
-    </table>
-
-  </div>
- </div>
-
-  <div><strong>配送先</strong>
-    　　<%= link_to "一覧を見る", deliveries_path(current_customer.id), class:"btn btn-warning btn-sm" %></div>
-  <div><strong>注文履歴</strong>
-    　<%= link_to "一覧を見る", orders_path(current_customer.id), class:"btn btn-warning btn-sm" %></div>
+      <div class="group">
+        <label class="col-sm-2 text-center">注文履歴</label>
+          <%= link_to "一覧を見る", orders_path(current_customer.id), class:"btn btn-primary" %>
+      </div>
 
 </div>
+</div>
+>>>>>>> b575790cbf93b65072ebd3c7b0b6e68d3a5fa176
