@@ -1,50 +1,56 @@
 <div class="container">
-	<div class="row">
-		<div class="col-xs-10">
-			<h1>配送先編集</h1>
-				<div class="delivery">
+ <div class="row">
+  <div class="col-xs-10">
+	<h1>配送先編集</h1>
+	 <div class="delivery">
 
-				<%= form_for(@delivery_address) do |f| %>
+	 <%= form_for(@delivery_address) do |f| %>
 
-				<div class="create-delivery-table row">
-					<div class="col-xs-7">
-						<table class="table">
-							<tbody>
-								<tr class="row">
-									<th class="col-xs-3">郵便番号</th>
-										<td class="col-xs-9 row">
-											<div class="col-xs-4">
-												<%= f.text_field :zip_code %>
-											</div>
-										</td>
-									</tr>
-								<tr class="row">
-									<th>住所</th>
-									<td>
-										<div class="col-xs-10">
-											<%= f.text_field :address %>
-										</div>
-									</td>
-								</tr>
-								<tr class="row">
-									<th>宛名</th>
-									<td>
-										<div class="col-xs-5">
-											<%= f.text_field :destination_name %>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
+	  <div class="create-delivery-table row">
+	   <div class="col-xs-7">
 
-				<%= f.submit '登録する', class:"btn btn-success" %>
+	    <table class="table">
+		 <tbody>
 
-			<% end %>
+		  <tr class="row">
+		   <th class="col-xs-3">郵便番号</th>
+			<td class="col-xs-9 row">
+			 <div class="col-xs-4">
+			  <%= f.text_field :zip_code %>
+			 </div>
+			</td>
+		   </tr>
 
-			</div>
+		   <tr class="row">
+		   	<th class="col-xs-3">住所</th>
+		   	 <td>
+		   	  <div class="col-xs-10">
+			   <%= f.text_field :address %>
+			  </div>
+			 </td>
+			</tr>
+
+			<tr class="row">
+			 <th class="col-xs-3">宛名</th>
+			  <td>
+			   <div class="col-xs-5">
+			    <%= f.text_field :destination_name %>
+			   </div>
+		      </td>
+		    </tr>
+
+		 </tbody>
+		</table>
+
 		</div>
-	</div>
+	  </div>
+
+	 <%= f.submit '登録する', class:"btn btn-success" %>
+
+	<% end %>
+
+   </div>
+  </div>
+ </div>
 </div>
 

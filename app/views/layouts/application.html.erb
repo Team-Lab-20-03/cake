@@ -36,7 +36,7 @@
               <%= link_to destroy_customer_session_path, method: :delete do %><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log Out</button><% end %>
 
               <div class="customer-name">
-                <h3>おかえりなさい！<%= current_customer.last_name + " " + current_customer.first_name %>さん</h3>
+                <h3><%= current_customer.last_name + " " + current_customer.first_name %>さん</h3>
               </div>
 
             <% else %>

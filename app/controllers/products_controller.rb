@@ -2,25 +2,24 @@ class ProductsController < ApplicationController
 
   def index
 
-      if
-      	params[:genre_id].present?
-       	@products = Product.where(genre_id: params[:genre_id])
-       	.page(params[:page]).per(18).reverse_order
+    @genre = Genre.where(is_active: true)# ジャンルが有効のみ
 
-        	@product_genre = @products.first.genre if @products.count > 0
-      else
-        	@products = Product
-          .joins(:genre).where(genres: {is_active: "有効"})
-          .page(params[:page]).per(18).reverse_order
-      end
-      	@genres = Genre.all
+    if
+      params[:genre_id]
+      @products = Product.where(genre_id: params[:genre_id])
+    else
+      @products = Product.all
     end
+
+      @genre = Genre.all
+
+  end
 
   def show
 
+    @genre = Genre.all
   	@product = Product.find(params[:id])
-  	@cart_item = CartItem.new(product_id: @product.id)
-  	@genre = Genre.all
+  	@cart_item = CartItem.new
 
   end
 
