@@ -1,36 +1,41 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-10">
+      <table class="table">
+        <thead>
+          <tr>
+            <td colspan="3" class="fontsize">ジャンル検索</td>
+          </tr>
+        </thead>
+        <tbody>
+          <td><%= render "products/genre_search", genres: @genre %></td>
+        </tbody>
+      </table>
 
-      <div class="product-card-content">
-        <% if @products %>
-        <%# 商品一覧の場合（一覧、ジャンル検索）%>
-        <% if @product_genre.present? %>
-        <h2 class="title"><%= @product_genre.name %></h2>
-        <p><%="全#{@products.total_count}件中" + "(#{@products.count}件表示)" %></p>
-        <%= render 'product_list', products: @products %>
-        <% else %>
-        <h2>商品の取り扱いがありません</h2>
-        <% end %>
-        <% elsif @q_products %>
-        <%# 検索の場合 %>
-        <div class="product-card-content">
-          <% if @q_products.empty? %>
-          <h3 class="top-empty-message">条件に合う商品が見つかりませんでした</h3>
-          <% else %>
-          <p><%="#{@q_products.total_count}件の商品がヒットしました" %></p>
-          <% end %>
-
-          <%= render 'product_list', products: @q_products %>
-
-          <div class="row">
-            <%= paginate @q_products, class: "paginate" %>
-          </div>
-        </div>
-        <% else %>
-
-        <% end %>
+      <div class="col-xs-10">
+        <table class="table">
+          <tbody>
+            <tr>
+              <% @products.each do |product| %>
+                <td class="image_id">
+                  <%= link_to product_path(product) do %>
+                  <%= attachment_image_tag product, :image_id, size: "280x280" %>
+                  <% end %>
+                </td>
+                <td class="name">
+                  <%= product.name %>
+                  <p>商品価格：¥<%= product.price %></p>
+                  <%= link_to "商品詳細", product_path(product), class: "btn btn-primary" %>
+                </td>
+                <td class="introduction">
+                  <%= product.intoroduction %>
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
       </div>
+
     </div>
   </div>
 </div>
