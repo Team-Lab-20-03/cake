@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
   end
 
   def create  #confirm.htmlの注文決定ボタン
-    binding.pry
+
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save    #支払方法、住所の保存

@@ -14,7 +14,7 @@
 				<tbody>
 					<% current_customer.cart_items.each do |cart_item| %>
 						<tr>
-							<td></td>
+							<td><%= cart_item.product.name %></td>
 							<td><%= cart_item.product.tax_price %></td>
 							<td><%= cart_item.quantity %></td>
 							<td><%= cart_item.subtotal_price %></td>
