@@ -22,8 +22,8 @@
 			<tbody>
 				<% @customer.cart_items.each do |cart_item| %>
 				<tr>
-					<td><% cart_item.product.name %></td>
-					<td><% cart_item.product.price %></td>
+					<td><%= cart_item.product.name %></td>
+					<td><%= cart_item.product.price %></td>
 					<td>
 						<%= form_for(@cart_item) do |f| %>
 							<div class="form">
@@ -32,7 +32,7 @@
 							</div>
 						<% end %>
 					</td>
-					<td><% cart_item.product.price %></td>
+					<td><%= cart_item.product.price %></td>
 					<td><%= link_to "消去する", cart_item_path, method: :delete, class:"btn btn-danger" %></td>
 				</tr>
 				<% end %>
