@@ -12,7 +12,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% current_customer.cart_items.each do |cart_item| %>
+					<% @cart_items.each do |cart_item| %>
 						<tr>
 							<td><%= cart_item.product.name %></td>
 							<td><%= cart_item.product.tax_price %></td>
