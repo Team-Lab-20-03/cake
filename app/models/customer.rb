@@ -10,35 +10,10 @@ class Customer < ApplicationRecord
 
   enum is_active: {有効: true, 退会済み: false}
 
-
-
-
-class Customer < ActiveRecord::Base
-  composed_of :fullname,
-       :class_name => "FullName",
-       :mapping =>[
-        [ :last_name, :family_name ],
-        [ :first_name, :given_name ]
-       ]
-
-  composed_of :fullkananame,
-       :class_name => "FullName",
-       :mapping =>[
-        [ :last_name, :family_name ],
-        [ :first_name, :given_name ]]
-end
-
-class FullName
-  attr_reader :family_name, :given_name
-
-  def initialize(family_name, given_name)
-    @family_name = family_name
-    @given_name = given_name
+  # 退会済み会員はログインできないようにする
+  # is_activeが有効の場合、sessionsコントローラへtrueを返す
+  def active_for_authentication?
+    super && (self.is_active == '有効')
   end
-
-  def to_s
-    [@family_name,@given_name].compact.join("")
-  end
-end
 
 end
