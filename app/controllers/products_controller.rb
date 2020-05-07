@@ -17,11 +17,14 @@ class ProductsController < ApplicationController
     end
 
   def show
-
   	@product = Product.find(params[:id])
   	@cart_item = CartItem.new(product_id: @product.id)
   	@genre = Genre.all
+  end
 
+  private
+  def product_params
+    params.require(:product).permit(:image)
   end
 
   end
