@@ -1,8 +1,9 @@
+<h3 class="text-center">
+	<strong><%= @customer.last_name %> <%= @customer.first_name %></strong> さんの会員詳細
+</h3>
 <div class="container">
 	<div class="row">
-
 		<div class="col-xs-10 col-xs-offset-1">
-			<h3 class="text-center"><strong><%= @customer.last_name %> <%= @customer.first_name %></strong> さんの会員詳細</h3>
 
 			<div class="row">
 				<label class="col-sm-3 col-sm-offset-3">会員ID</label>
@@ -47,6 +48,6 @@
 				<%= link_to '編集する', edit_admins_customer_path(@customer), class: 'btn btn-primary col-sm-offset-4' %>
 				<%= link_to '注文履歴一覧', admins_orders_path(@customer.orders), class: 'btn btn-default' %>
 			</div>
-		</div>
-	</div>
-</div>
+		</div><!-- col-xs-10 -->
+	</div><!-- row -->
+</div><!-- container -->
