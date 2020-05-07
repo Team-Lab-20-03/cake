@@ -1,52 +1,53 @@
+<h3 class="text-center">
+	<strong><%= @customer.last_name %> <%= @customer.first_name %></strong> さんの会員詳細
+</h3>
 <div class="container">
 	<div class="row">
-
 		<div class="col-xs-10 col-xs-offset-1">
-			<h3 class="text-center"><strong><%= @customer.last_name %> <%= @customer.first_name %></strong> さんの会員詳細</h3>
 
-			<div class="col-xs-12">
+			<div class="row">
 				<label class="col-sm-3 col-sm-offset-3">会員ID</label>
-				<div class="col-sm-6">
+				<p class="col-sm-6">
 					<%= @customer.id %>　<label class="label label-info"><%= @customer.is_active %>会員</label>
-				</div>
+				</p>
 			</div>
 
-			<div class="col-xs-12">
+			<div class="row">
 				<label class="col-sm-3 col-sm-offset-3">氏名</label>
-				<div class="col-sm-6">
-					<%= @customer.last_name %> <%= @customer.first_name %></div>
+				<p class="col-sm-6">
+					<%= @customer.last_name %> <%= @customer.first_name %></p>
 			</div>
 
-			<div class="col-xs-12">
+			<div class="row">
 				<label class="col-sm-3 col-sm-offset-3">フリガナ</label>
-				<div class="col-sm-6">
-					<%= @customer.kana_last_name %> <%= @customer.kana_first_name %></div>
+				<p class="col-sm-6">
+					<%= @customer.kana_last_name %> <%= @customer.kana_first_name %></p>
 			</div>
 
-			<div class="col-xs-12">
+			<div class="row">
 				<label class="col-sm-3 col-sm-offset-3">郵便番号</label>
-				<div class="col-sm-6"><%= @customer.main_zip_code %></div>
+				<p class="col-sm-6"><%= @customer.main_zip_code %></p>
 			</div>
 
-			<div class="col-xs-12">
+			<div class="row">
 				<label class="col-sm-3 col-sm-offset-3">住所</label>
-				<div class="col-sm-6"><%= @customer.main_address %></div>
+				<p class="col-sm-6"><%= @customer.main_address %></p>
 			</div>
 
-			<div class="col-xs-12">
+			<div class="row">
 				<label class="col-sm-3 col-sm-offset-3">電話番号</label>
-				<div class="col-sm-6"><%= @customer.phone_number %></div>
+				<p class="col-sm-6"><%= @customer.phone_number %></p>
 			</div>
 
-			<div class="col-xs-12">
+			<div class="row">
 				<label class="col-sm-3 col-sm-offset-3">メールアドレス</label>
-				<div class="col-sm-6"><%= @customer.email %></div>
+				<p class="col-sm-6"><%= @customer.email %></p>
 			</div>
 
-			<div class="col-xs-12">
+			<div class="row">
 				<%= link_to '編集する', edit_admins_customer_path(@customer), class: 'btn btn-primary col-sm-offset-4' %>
 				<%= link_to '注文履歴一覧', admins_orders_path(@customer.orders), class: 'btn btn-default' %>
 			</div>
-		</div>
-	</div>
-</div>
+		</div><!-- col-xs-10 -->
+	</div><!-- row -->
+</div><!-- container -->
