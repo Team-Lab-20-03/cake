@@ -10,10 +10,10 @@
 
 			<div class="row">
 				<label class="col-sm-3 col-sm-offset-3">配送先</label>
-				<div class="col-sm-6">
+				<p class="col-sm-6">
 					<%= "〒" + @order.delivery_zip_code + " " + @order.delivery_address %><br>
 					<%= @order.delivery_name %>
-				</div>
+				</p>
 			</div>
 
 			<div class="row">
@@ -51,7 +51,7 @@
 							<td><%= ordered_product.subtotal_price %></td>
 							<%= form_for [:admins, ordered_product] do |f| %>
 								<td><%= f.select :create_status, OrderedProduct.create_statuses.keys.to_a %></td>
-								<td><%= f.submit '更新' %></td>
+								<td><%= f.submit '更新', class: 'btn btn-primary' %></td>
 							<% end %>
 						</tr>
 					<% end %>
