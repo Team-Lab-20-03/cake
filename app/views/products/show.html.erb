@@ -9,11 +9,11 @@
 
 			<h1><%= @product.name %></h1>
 			<p><%= @product.introduction %></p>
-			<p><%= "¥#{(@product.price.tax_price}" %>(税込)</p>
+			<p><%= "¥#{(@product.tax_price}" %>(税込)</p>
 
 			<%= form_for(@cart_item) do |f| %>
 		 	 <!-- 販売中の場合はtrue -->
-			 <% if @product.is_active == true %>
+			 <% if @product.is_active == "販売中" %>
 			 <%= f.submit "カートに入れる", class:"btn btn-primary" %>
 			 <!-- それ以外の場合　-->
 			 <% else %>
