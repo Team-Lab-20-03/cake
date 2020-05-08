@@ -10,10 +10,9 @@ class Customer < ApplicationRecord
 
   enum is_active: {有効: true, 退会済み: false}
 
-  # 退会済み会員はログインできないようにする
   # is_activeが有効の場合、sessionsコントローラへtrueを返す
-  def active_for_authentication?
-    super && (self.is_active == '有効')
-  end
+ def active_for_authentication?
+ 	super && (self.is_active == '有効')
+end
 
 end

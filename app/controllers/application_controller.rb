@@ -1,6 +1,18 @@
 class ApplicationController < ActionController::Base
-
+		#悪意あるpostメソッドを防ぐ
+	protect_from_forgery with: :exception
 	before_action :configure_permitted_parameters, if: :devise_controller?
+
+	helper_method :current_cart
+
+	def current_cart
+		if session[:customer_id]
+			@customer = Customer.find(session[:customer_id])
+		else
+			@customer = Customer.create
+			session[:customer_id] = @customer.id
+		end
+	end
 
 	private
     def set_search_product
@@ -14,4 +26,5 @@ class ApplicationController < ActionController::Base
 	def configure_permitted_parameters
 		devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :kana_last_name, :kana_first_name, :email, :main_zip_code, :main_address, :phone_number])
 	end
+	#追加したカラムをすべて記述する。
 end

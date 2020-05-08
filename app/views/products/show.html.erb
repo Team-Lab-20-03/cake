@@ -1,24 +1,28 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-10">
+			<div class="col-xs-2">
+    		<%= render "products/genre_search", genres: @genre %>
+    		</div>
 
-		<%= attachment_image_tag @product_image :image, :size => '280x280'%>
+			<%= attachment_image_tag @product :image_id, :size => '280x280'%>
 
-		<h1><%= @product.name %></h1>
-		<p><%= @product.introduction %></p>
-		<p><%= "¥#{(@product.price.tax_price}" %>(税込)</p>
+			<h1><%= @product.name %></h1>
+			<p><%= @product.introduction %></p>
+			<p><%= "¥#{(@product.price.tax_price}" %>(税込)</p>
 
-		<%= form_for(@cart_item) do |f| %>
-
-			<%= f.select :count,(1..10), class: "form-control product-show-form-control" %>
-
-			<% if @product.is_active == true %>
-			<%= f.submit "カートに入れる" %>
-			<% else %>
-			<%= f.submit "売り切れ" %>
+			<%= form_for(@cart_item) do |f| %>
+		 	 <!-- 販売中の場合はtrue -->
+			 <% if @product.is_active == true %>
+			 <%= f.submit "カートに入れる", class:"btn btn-primary" %>
+			 <!-- それ以外の場合　-->
+			 <% else %>
+			 <%= f.submit "売り切れ", class:"btn btn-danger"%>
 			<% end %>
 
-		<% end %>
+			 <%= f.select :count,(1..10),{},class:"form-control product-show-form-control" %>
+
+			<% end %>
 
 		</div>
 	</div>
