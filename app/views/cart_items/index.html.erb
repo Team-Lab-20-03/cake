@@ -20,7 +20,7 @@
 			</thead>
 
 			<tbody>
-				<% current_customer.cart_items.each do |cart_item| %>
+				<% @customer.cart_items.each do |cart_item| %>
 				<tr>
 					<td><%= cart_item.product.name %></td>
 
@@ -38,7 +38,6 @@
 
 					<td><%= cart_item.subtotal_price %></td>
 					<td><%= link_to "消去する", cart_item_path(cart_item.id), method: :delete, class:"btn btn-danger" %></td>
-				
 				</tr>
 				<% end %>
 			</tbody>
@@ -48,7 +47,7 @@
 		<table class="table">
 			<tbody>
 				<th>合計金額</th>
-				<td><%= @cart_items.cart_sum(current_customer) %></td>
+				<td><%= @customer.cart_sum %></td>
 			</tbody>
 		</table>
 
