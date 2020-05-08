@@ -19,7 +19,7 @@
               <% @products.each do |product| %>
                 <td class="image_id">
                   <%= link_to product_path(product) do %>
-                  <%= attachment_image_tag product, :image_id, size: "280x280" %>
+                  <%= attachment_image_tag product, :image, size: "280x280" %>
                   <% end %>
                 </td>
                 <td class="name">
@@ -28,7 +28,7 @@
                   <%= link_to "商品詳細", product_path(product), class: "btn btn-primary" %>
                 </td>
                 <td class="introduction">
-                  <%= product.intoroduction %>
+                  <%= product.introduction %>
                 </td>
               <% end %>
             </tr>
