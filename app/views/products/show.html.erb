@@ -5,11 +5,11 @@
     		<%= render "products/genre_search", genres: @genre %>
     		</div>
 
-			<%= attachment_image_tag @product :image_id, :size => '280x280'%>
+			<%= attachment_image_tag @product, :image, :size => '280x280'%>
 
 			<h1><%= @product.name %></h1>
 			<p><%= @product.introduction %></p>
-			<p><%= "¥#{(@product.tax_price}" %>(税込)</p>
+			<p><%= "¥#{@product.tax_price}" %>(税込)</p>
 
 			<%= form_for(@cart_item) do |f| %>
 		 	 <!-- 販売中の場合はtrue -->
@@ -20,7 +20,7 @@
 			 <%= f.submit "売り切れ", class:"btn btn-danger"%>
 			<% end %>
 
-			 <%= f.select :count,(1..10),{},class:"form-control product-show-form-control" %>
+			 <%= f.select :quantity,(1..10),{},class:"form-control product-show-form-control" %>
 
 			<% end %>
 
