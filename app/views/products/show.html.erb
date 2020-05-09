@@ -23,24 +23,20 @@
 		            <p><%= @product.introduction %></p></br>
 		            <p><%= "¥#{(@product.tax_price)}" %>(税込)</p></br>
 
-		          	<%= form_for(@cart_item) do |f| %>
-				 	 <!-- 販売中の場合はtrue -->
-					 <% if @product.is_active == "販売中" %>
-					 <%= f.submit "カートに入れる", class:"btn btn-primary" %>
-					 <!-- それ以外の場合　-->
-					 <% else %>
-					 <%= f.submit "売り切れ", class:"btn btn-danger"%>
-					<% end %>
 
-
-						<%= f.select :quantity,(1..10),{},class:"form-control" %>
-
-					<% end %>
+		            <% if @product.is_active == "販売中" %>
+         			    <%= form_for(@cart_item) do |f| %>
+							<%= f.select :quantity,(1..10),{},class:"form-control" %>
+		            		<%= f.hidden_field :product_id, :value => @product.id %>
+						 	<%= f.submit "カートに入れる", class:"btn btn-primary" %>
+						<% end %>
+		            <% else %>
+		            	<p>売り切れ</p>
+		            <% end %>
 		          </td>
 		      </div>
 		    </table>
 		  </div>
-
 		</div>
 	</div>
 </div>
