@@ -1,46 +1,55 @@
 <!-- customers/top.html.erb -->
 <!-- ヘッダー挿入 -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-3" style="background-color: orange;">
-     <!-- renderで部分テンプレート入る？ジャンル検索コーナー -->
 
-      <h3>ジャンル検索</h3>
-         <p>ケーキ<br>
-            焼き菓子<br>
-            プリン<br>
-            キャンディ</p>
+<div class="container">
+  <div class="row row-eq-height">
+    <div class="col-md-3" style="background-color: silver;">
+     <!-- renderで部分テンプレート入る？ジャンル検索コーナー -->
+　　　 <h3>ジャンル検索</h3>
+      <%= render 'products/genre_search', genres: @genres %>
+
     </div>
 
   <!-- <div class="row"> -->
-    <div class="col-md-9" style="background-color: palegreen;">
+    <div class="col-md-9" style="background-color: #CCCCFF;">
       <div class="row">
         <div class="introduction", style="border: 4px double #ff6699;font-size: 90%; padding: 20px;", align="center">
-          <div><strong>ようこそ、NaganoCakeへ！</strong><br>
-           このサイトは、ケーキ販売のオンラインストアです。<br>
-           会員でない方でも商品の閲覧は可能です。<br>
-           購入には会員登録が必要になります。</div>
+          <font face="monospace">
+            <h1>ようこそ、NaganoCakeへ！</h1><br>
+             <h4>信州・長野特産フルーツをふんだんに使用した<br>オリジナルCakeのオンラインストアです。<br>
+             会員でない方でも商品の閲覧は可能です！<br>
+             購入には会員登録が必要になります。</h4></font>
         </div>
+      </div>
+
+
 
       <div class="row">
         <div class="recommend">
-          <h2><strong>オススメ商品っ！</strong></h2>
-
+          <font face="monospace">
+            <h2>〜本日のオススメ商品〜</h2>
+       <table>
       <!-- 商品のeachメソッド入れる -->
-
-      <!-- attachmentのやつ入れたい。 -->
-          <td><%= attachment_image_tag @product, :image, :fill, 150, 150, format: 'jpg', class:"img-circle" %>       </td>
-          <td><strong>商品名</strong></td>
-          <td><strong>¥</strong></td><!-- 価格を表示させたい -->
+      <% @products.each do |product| %>
+      <!-- :imageのところはカラム名image_idを想定してる。 -->
+              <%= link_to product_path(product.id) do %>
+              <td><%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpg', class:"img-circle" %></td>
+              <td><strong><%= product.name %></strong></td>
+              <td><strong>¥<%= product.price %></strong></td>
+              <!-- 価格を表示させたい -->
+              <% end %>
+      <% end %>
       <!-- eachメソッドのend入れる -->
 
-        <ins><%= link_to "もっと見る", products_path %></ins>
+      </table>
+
+            <ins><%= link_to "もっと見る", products_path %></ins>
+          </font>
 
         </div>
       </div>
 
     </div>
-  </div>
 
-</div>
+  </div>
 </div>
