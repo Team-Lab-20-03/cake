@@ -1,5 +1,5 @@
 class Admins::OrdersController < ApplicationController
-	before_action :authenticate_admin!
+	# before_action :authenticate_admin!
 
 	# 注文履歴一覧
 	def index
