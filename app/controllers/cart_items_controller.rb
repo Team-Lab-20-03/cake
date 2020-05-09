@@ -7,11 +7,12 @@ class CartItemsController < ApplicationController
 	end
 
 	def create
-		if current_customer.cart_item.blank?
+		@cart_item = CartItem.find_by(customer_id: current_customer.id, product_id: params[:cart_item][:product_id])
+		if @cart_item
+			@cart_item.quantity += params[:cart_item][:quantity].to_i
+		else
 			@cart_item = current_customer.cart_items.new(cart_item_params)
 		end
-		@cart_item = CartItem.find(params[:id])
-		@cart_item.quantity += params[:quantity].to_i
 		@cart_item.save
 		redirect_to cart_items_path
 	end
@@ -29,17 +30,12 @@ class CartItemsController < ApplicationController
 	end
 
 	def destroy_all
-		@customer = Customer.find(current_customer.id)
-		if customer.cart_items.destroy_all
-			redirect_to cart_items_path
-		else
-			redirect_to cart_items_path
-		end
+		current_customer.cart_items.destroy_all
+		redirect_to cart_items_path
 	end
 
 	private
 	def cart_item_params
 		params.require(:cart_item).permit(:quantity, :product_id)
 	end
-
 end
