@@ -23,13 +23,13 @@
       <nav class="navbar navbar-main navbar-shadow" role="navigation" id="slide-nav">
 
         <% if admin_signed_in? %>
-
           <nav class="globalMenuSp">
             <ul>
-              <li><%= link_to admin_products_path, method: :get do %> 商品一覧<% end %></li>
-              <li><%= link_to admin_customers_path, method: :get do %> 会員一覧<% end %></li>
-              <li><%= link_to admin_orders_path, method: :get do %> 注文履歴一覧<% end %></li>
-              <li><%= link_to admin_genres_path, method: :get do  %> ジャンル一覧<% end %></li>
+              <li><%= link_to root_path,method: :get do %>Home<% end %></li>
+              <li><%= link_to admins_products_path, method: :get do %> 商品一覧<% end %></li>
+              <li><%= link_to admins_customers_path, method: :get do %> 会員一覧<% end %></li>
+              <li><%= link_to admins_orders_path, method: :get do %> 注文履歴一覧<% end %></li>
+              <li><%= link_to admins_genres_path, method: :get do  %> ジャンル一覧<% end %></li>
               <li><%= link_to destroy_admin_session_path, method: :delete do %> ログアウト<% end %></li>
             </ul>
           </nav>
