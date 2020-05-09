@@ -1,42 +1,44 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-8 col-xs-offset-2">
-			<h3>ジャンル一覧</h3>
+<div class="bg-admin">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2">
+				<h3 class="headline-admin"><strong>ジャンル一覧</strong></h3>
 
-			<!-- 新規追加 -->
-			<%= form_for [:admins, @genre], html: { class: 'form-horizontal' } do |f| %>
-		    <%= f.label :name, "ジャンル", class: 'col-sm-3' %>
-		    <div class="col-sm-4"><%= f.text_field :name, class: 'form-control' %></div>
-		    <div class="col-sm-5">
-			    <%= f.radio_button :is_active, :有効, checked: true %>
-			    <%= f.label :name, "有効", style: "display: inline-block;" %>
-			    <%= f.radio_button :is_active, :無効 %>
-			    <%= f.label :name, "無効", style: "display: inline-block;" %>
-			    <%= f.submit "追加", class: "btn btn-success" %>
-		    </div>
-			<% end %>
-			<!-- 新規追加 -->
+				<!-- 新規追加 -->
+				<%= form_for [:admins, @genre], html: { class: 'form-horizontal' } do |f| %>
+			    <%= f.label :name, "ジャンル", class: 'col-sm-3 p-admin' %>
+			    <div class="col-sm-4"><%= f.text_field :name, class: 'form-control form-admin' %></div>
+			    <div class="col-sm-5">
+				    <%= f.radio_button :is_active, :有効, checked: true, class: 'p-admin' %>
+				    <%= f.label :name, "有効", class: 'p-admin', style: "display: inline-block;" %>
+				    <%= f.radio_button :is_active, :無効 %>
+				    <%= f.label :name, "無効", class: 'p-admin', style: "display: inline-block;" %>
+				    <%= f.submit "追加", class: "btn btn-admin" %>
+			    </div>
+				<% end %>
+				<!-- 新規追加 -->
 
-			<!-- ジャンル一覧 -->
-			<div class="row">
-				<table class="table table-responsive">
-					<thead>
-						<tr>
-							<th>ジャンル</th>
-							<th>状態</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @genres.each do |genre| %>
+				<!-- ジャンル一覧 -->
+				<div class="row">
+					<table class="table table-responsive table-admin">
+						<thead>
 							<tr>
-								<td><%= genre.name %></td>
-								<td><%= genre.is_active %></td>
-								<td><%= link_to "編集する", edit_admins_genre_path(genre.id), class: "btn btn-primary" %></td>
+								<th class="headline-admin">ジャンル</th>
+								<th class="headline-admin">状態</th>
+								<th></th>
 							</tr>
-						<% end %>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<% @genres.each do |genre| %>
+								<tr>
+									<td class="p-admin"><%= genre.name %></td>
+									<td class="p-admin"><%= genre.is_active %></td>
+									<td><%= link_to "編集する", edit_admins_genre_path(genre.id), class: "btn btn-admin" %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

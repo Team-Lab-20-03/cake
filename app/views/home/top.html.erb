@@ -3,7 +3,7 @@
 
 <div class="container">
   <div class="row row-eq-height">
-    <div class="col-md-3" style="background-color: silver;">
+    <div class="col-md-3">
      <!-- renderで部分テンプレート入る？ジャンル検索コーナー -->
 　　　 <h3>ジャンル検索</h3>
       <%= render 'products/genre_search', genres: @genres %>
@@ -11,9 +11,10 @@
     </div>
 
   <!-- <div class="row"> -->
-    <div class="col-md-9" style="background-color: grey;">
+
+    <div class="col-md-9">
       <div class="row">
-        <div class="introduction", style="border: 4px double #ff6699;font-size: 90%; padding: 20px;", align="center">
+        <div class="introduction", align="center">
           <font face="monospace">
             <h1>ようこそ、NaganoCakeへ！</h1><br>
              <h4>信州・長野特産フルーツをふんだんに使用した<br>オリジナルCakeのオンラインストアです。<br>
@@ -25,26 +26,28 @@
 
       <div class="row">
         <div class="recommend">
-          <font face="monospace">
-            <h2>〜本日のオススメ商品〜</h2>
-
-      <div>  <!-- 商品のeachメソッド入れる -->
+          <font face="monospace" align="center">
+            <h3>Today's Recommend</h3>
+       <table>
+      <!-- 商品のeachメソッド入れる -->
       <% @products.each do |product| %>
-        <!-- :imageのところはカラム名image_idを想定してる。 -->
-        <div class="product">
-          <%= link_to product_path(product.id) do %>
-           <%= attachment_image_tag product, :image, :fill, 150, 100, format: 'jpg', class:"img" %><br>
-            <strong> <%= product.name %></strong>
-                    ¥<%= product.price %>
-           <% end %>
-        </div>
-      </div>
-
+      <!-- :imageのところはカラム名image_idを想定してる。 -->
+      <td>
+              <%= link_to product_path(product.id) do %>
+              <p><%= attachment_image_tag product, :image, size: "120x120"%></p>
+              <p><%= product.name %></p>
+              <p>¥<%= product.price %></p>
+              <!-- 価格を表示させたい -->
+              <% end %>
+            </td>
       <% end %>
       <!-- eachメソッドのend入れる -->
-      <div>
-          <ins><%= link_to "もっと見る", products_path %></ins>
-      </div>
+
+      </table>
+
+      <div class="link", align="right">
+            <ins><%= link_to "もっと見る", products_path %></ins>
+          </div>
           </font>
 
         </div>

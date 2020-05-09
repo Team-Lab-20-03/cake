@@ -1,30 +1,32 @@
-<h3 class="text-center"><strong>商品一覧</strong></h3>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1">
-			<%= link_to "商品追加", new_admins_product_path, class: 'btn btn-default' %>
-			<table class="table table-responsive">
-				<thead>
-					<tr>
-						<th>商品ID</th>
-						<th>商品名</th>
-						<th>税抜価格</th>
-						<th>ジャンル</th>
-						<th>ステータス</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @products.each do |product| %>
+<div class="bg-admin">
+	<h3 class="text-center headline-admin"><strong>商品一覧</strong></h3>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<%= link_to "商品追加", new_admins_product_path, class: 'btn btn-admin' %>
+				<table class="table table-responsive table-admin">
+					<thead>
 						<tr>
-							<td><%= product.id %></td>
-							<td><%= link_to "#{product.name}", admins_product_path(product.id) %></td>
-							<td><%= product.price %>円</td>
-							<td><%= product.genre.name %></td>
-							<td><%= product.is_active %></td>
+							<th class="headline-admin">商品ID</th>
+							<th class="headline-admin">商品名</th>
+							<th class="headline-admin">税抜価格</th>
+							<th class="headline-admin">ジャンル</th>
+							<th class="headline-admin">ステータス</th>
 						</tr>
-					<% end %>
-				</tbody>
-			</table>
-		</div><!--col-->
-	</div><!--row-->
-</div><!--container-->
+					</thead>
+					<tbody>
+						<% @products.each do |product| %>
+							<tr>
+								<td class="p-admin"><%= product.id %></td>
+								<td class="p-admin"><strong><%= link_to "#{product.name}", admins_product_path(product.id) %></strong></td>
+								<td class="p-admin"><%= product.price %>円</td>
+								<td class="p-admin"><%= product.genre.name %></td>
+								<td class="p-admin"><%= product.is_active %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div><!--col-->
+		</div><!--row-->
+	</div><!--container-->
+</div>
