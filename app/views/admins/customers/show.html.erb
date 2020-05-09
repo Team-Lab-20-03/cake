@@ -1,53 +1,55 @@
-<h3 class="text-center">
-	<strong><%= @customer.last_name %> <%= @customer.first_name %></strong> さんの会員詳細
-</h3>
-<div class="container">
-	<div class="row">
-		<div class="col-xs-10 col-xs-offset-1">
+<div class="bg-admin">
+	<h3 class="text-center headline-admin">
+		<strong><%= @customer.last_name %> <%= @customer.first_name %> さんの会員詳細</strong>
+	</h3>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 card-admin">
 
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">会員ID</label>
-				<p class="col-sm-6">
-					<%= @customer.id %>　<label class="label label-info"><%= @customer.is_active %>会員</label>
-				</p>
-			</div>
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">会員ID</label>
+					<p class="col-sm-6 p-admin">
+						<%= @customer.id %>　<label class="label label-info"><%= @customer.is_active %>会員</label>
+					</p>
+				</div>
 
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">氏名</label>
-				<p class="col-sm-6">
-					<%= @customer.last_name %> <%= @customer.first_name %></p>
-			</div>
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">氏名</label>
+					<p class="col-sm-6 p-admin">
+						<%= @customer.last_name %> <%= @customer.first_name %></p>
+				</div>
 
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">フリガナ</label>
-				<p class="col-sm-6">
-					<%= @customer.kana_last_name %> <%= @customer.kana_first_name %></p>
-			</div>
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">フリガナ</label>
+					<p class="col-sm-6 p-admin">
+						<%= @customer.kana_last_name %> <%= @customer.kana_first_name %></p>
+				</div>
 
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">郵便番号</label>
-				<p class="col-sm-6"><%= @customer.main_zip_code %></p>
-			</div>
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">郵便番号</label>
+					<p class="col-sm-6 p-admin"><%= @customer.main_zip_code %></p>
+				</div>
 
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">住所</label>
-				<p class="col-sm-6"><%= @customer.main_address %></p>
-			</div>
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">住所</label>
+					<p class="col-sm-6 p-admin"><%= @customer.main_address %></p>
+				</div>
 
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">電話番号</label>
-				<p class="col-sm-6"><%= @customer.phone_number %></p>
-			</div>
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">電話番号</label>
+					<p class="col-sm-6 p-admin"><%= @customer.phone_number %></p>
+				</div>
 
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">メールアドレス</label>
-				<p class="col-sm-6"><%= @customer.email %></p>
-			</div>
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">メールアドレス</label>
+					<p class="col-sm-6 p-admin"><%= @customer.email %></p>
+				</div>
 
-			<div class="row">
-				<%= link_to '編集する', edit_admins_customer_path(@customer), class: 'btn btn-primary col-sm-offset-4' %>
-				<%= link_to '注文履歴一覧', admins_orders_path(@customer.orders), class: 'btn btn-default' %>
-			</div>
-		</div><!-- col-xs-10 -->
-	</div><!-- row -->
-</div><!-- container -->
+				<div class="row">
+					<%= link_to '編集する', edit_admins_customer_path(@customer), class: 'btn btn-admin col-sm-offset-4' %>
+					<%= link_to '注文履歴一覧', admins_orders_path(@customer.orders), class: 'btn btn-admin' %>
+				</div>
+			</div><!-- col-xs-10 -->
+		</div><!-- row -->
+	</div><!-- container -->
+</div>

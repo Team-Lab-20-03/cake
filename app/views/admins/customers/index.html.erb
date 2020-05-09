@@ -1,27 +1,29 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-8 col-xs-offset-2">
-			<h3>会員一覧</h3>
-			<table class="table table-responsive">
-				<tr>
-					<th>会員ID</th>
-					<th>氏名</th>
-					<th>メールアドレス</th>
-					<th>ステータス</th>
-				</tr>
-				<% @customers.each do |customer| %>
+<div class="bg-admin">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2">
+				<h3 class="headline-admin"><strong>会員一覧</strong></h3>
+				<table class="table table-responsive table-admin">
 					<tr>
-						<td><%= customer.id %></td>
-						<td>
-							<%= link_to admins_customer_path(customer.id) do %>
-								<%= customer.last_name %><%= customer.first_name %>
-							<% end %>
-						</td>
-						<td><%= customer.email %></td>
-						<td><%= customer.is_active %></td>
+						<th class="headline-admin">会員ID</th>
+						<th class="headline-admin">氏名</th>
+						<th class="headline-admin">メールアドレス</th>
+						<th class="headline-admin">ステータス</th>
 					</tr>
-				<% end %>
-			</table>
+					<% @customers.each do |customer| %>
+						<tr>
+							<td class="p-admin"><%= customer.id %></td>
+							<td class="p-admin">
+								<%= link_to admins_customer_path(customer.id) do %>
+									<strong><%= customer.last_name %><%= customer.first_name %></strong>
+								<% end %>
+							</td>
+							<td class="p-admin"><%= customer.email %></td>
+							<td class="p-admin"><%= customer.is_active %></td>
+						</tr>
+					<% end %>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>
