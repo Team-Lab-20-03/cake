@@ -19,3 +19,15 @@
 //※ require jquery.jpostal
 //= require bootstrap-sprockets
 //= require jquery
+
+$(function() {
+    $('.navToggle').click(function() {
+        $(this).toggleClass('active');
+ 
+        if ($(this).hasClass('active')) {
+            $('.globalMenuSp').addClass('active');
+        } else {
+            $('.globalMenuSp').removeClass('active');
+        }
+    });
+});
