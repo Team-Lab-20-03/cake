@@ -5,6 +5,25 @@ class ApplicationController < ActionController::Base
 
 	helper_method :current_cart
 
+  # ログイン後のリダイレクト先
+	def after_sign_in_path_for(resource_or_scope)
+	  if resource_or_scope.is_a?(Admin)
+	    admins_home_top_path
+	  else
+	    root_path
+	  end
+	end
+
+  #ログアウト後のリダイレクト先
+	def after_sign_out_path_for(resource_or_scope)
+	  if resource_or_scope == :admin
+	    new_admin_session_path
+	  else
+	    root_path
+	  end
+	end
+
+
 	def current_cart
 		if session[:customer_id]
 			@customer = Customer.find(session[:customer_id])
