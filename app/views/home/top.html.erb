@@ -11,6 +11,7 @@
     </div>
 
   <!-- <div class="row"> -->
+
     <div class="col-md-9">
       <div class="row">
         <div class="introduction", align="center">
@@ -22,28 +23,31 @@
         </div>
       </div>
 
+
       <div class="row">
         <div class="recommend">
           <font face="monospace" align="center">
-            <h3>Today's Recommend</h3>
-       <table>
+            <h3>〜Today's Recommend〜</h3>
+      <table>
       <!-- 商品のeachメソッド入れる -->
       <% @products.each do |product| %>
       <!-- :imageのところはカラム名image_idを想定してる。 -->
-      <td>
+            <td>
               <%= link_to product_path(product.id) do %>
               <p><%= attachment_image_tag product, :image, size: "120x120"%></p>
               <p><%= product.name %></p>
               <p>¥<%= product.price %></p>
-              <!-- 価格を表示させたい -->
               <% end %>
             </td>
       <% end %>
-      <!-- eachメソッドのend入れる -->
 
       </table>
 
       <div class="link", align="right">
+
+        <%= paginate @products, class: "paginate" %>
+<!-- 足してみた -->
+
             <ins><%= link_to "もっと見る", products_path %></ins>
           </div>
           </font>

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def top
-  	@products = Product.all
+  	@products = Product.page(params[:page]).reverse_order #変えてる
   	@genres = Genre.all
   end
 
