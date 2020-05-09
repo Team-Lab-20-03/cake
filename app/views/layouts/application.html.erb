@@ -10,51 +10,38 @@
   </head>
 
 <body>
-  <header>
-
-    <div class="navToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span>MENU</span>
-    </div>
-
-    <div class="header" id="header">
-      <nav class="navbar navbar-main navbar-shadow" role="navigation" id="slide-nav">
-
+     <header class="nav navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+          <span>NAGANO CAKE</span>
+      <nav>
         <% if admin_signed_in? %>
-          <nav class="globalMenuSp">
-            <ul>
-              <li><%= link_to root_path,method: :get do %>Home<% end %></li>
-              <li><%= link_to admins_products_path, method: :get do %> 商品一覧<% end %></li>
-              <li><%= link_to admins_customers_path, method: :get do %> 会員一覧<% end %></li>
-              <li><%= link_to admins_orders_path, method: :get do %> 注文履歴一覧<% end %></li>
-              <li><%= link_to admins_genres_path, method: :get do  %> ジャンル一覧<% end %></li>
-              <li><%= link_to destroy_admin_session_path, method: :delete do %> ログアウト<% end %></li>
+            <ul class="nav navbar-nav navbar-left">
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "商品一覧", admins_products_path %></li>
+              <li><%= link_to "会員一覧", admins_customers_path %></li>
+              <li><%= link_to "注文履歴一覧", admins_orders_path %></li>
+              <li><%= link_to "ジャンル一覧", admins_genres_path %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
             </ul>
-          </nav>
-
 
         <% elsif customer_signed_in? %>
 
-          <nav class="globalMenuSp">
-            <ul>
-              <li><%= link_to root_path,method: :get do %>Home<% end %></li>
-              <li><%= link_to customer_path(current_customer.id), method: :get do %>My Page<% end %></li>
-              <li><%= link_to products_path, method: :get do %>Products<% end %></li>
-              <li><%= link_to cart_items_path(current_customer.id), method: :get do %>Cart Items<% end %></li>
-              <li><%= link_to destroy_customer_session_path, method: :delete do %>Log Out<% end %></li>
+            <ul class="nav navbar-nav navbar-left">
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "My Page", customer_path(current_customer.id) %></li>
+              <li><%= link_to "Products", products_path %></li>
+              <li><%= link_to "Cart Items", cart_items_path(current_customer.id) %></li>
+              <li><%= link_to "Log Out", destroy_customer_session_path %></li>
             </ul>
-          </nav>
 
         <% else %>
 
-          <nav class="globalMenuSp">
-            <ul>
-              <li><%= link_to root_path,method: :get do %>Home<% end %></li>
-              <li><%= link_to products_path, method: :get do %>Products<% end %></li>
-              <li><%= link_to new_customer_registration_path, method: :get do %>Sign Up<% end %></li>
-              <li><%= link_to new_customer_session_path, method: :get do %>Log In<% end %></li>
+            <ul class="nav navbar-nav navbar-left">
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Products", products_path %></li>
+              <li><%= link_to "Sign Up", new_customer_registration_path %></li>
+              <li><%= link_to "Log In", new_customer_session_path %></li>
             </ul>
           </nav>
 
