@@ -6,7 +6,7 @@
 
 				<!-- 新規追加 -->
 				<%= form_for [:admins, @genre], html: { class: 'form-horizontal' } do |f| %>
-			    <%= f.label :name, "ジャンル", class: 'col-sm-3 p-admin' %>
+			    <%= f.label :name, "ジャンル", class: 'col-sm-3 cartion-admin' %>
 			    <div class="col-sm-4"><%= f.text_field :name, class: 'form-control form-admin' %></div>
 			    <div class="col-sm-5">
 				    <%= f.radio_button :is_active, :有効, checked: true, class: 'p-admin' %>
@@ -20,11 +20,11 @@
 
 				<!-- ジャンル一覧 -->
 				<div class="row">
-					<table class="table table-responsive table-admin">
+					<table class="table table-admin">
 						<thead>
 							<tr>
-								<th class="headline-admin">ジャンル</th>
-								<th class="headline-admin">状態</th>
+								<th class="caption-admin">ジャンル</th>
+								<th class="caption-admin">状態</th>
 								<th></th>
 							</tr>
 						</thead>

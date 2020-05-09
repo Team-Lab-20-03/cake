@@ -5,12 +5,12 @@
 			<div class="col-xs-10 col-xs-offset-1 card-admin">
 				<!-- 注文者情報 -->
 				<div class="row">
-					<label class="col-sm-3 col-sm-offset-3 headline-admin">購入者</label>
+					<label class="col-sm-3 col-sm-offset-3 caption-admin">購入者</label>
 					<%= link_to @order.delivery_name, admins_customer_path(@order.customer_id), class: 'col-sm-6 p-admin'  %>
 				</div>
 
 				<div class="row">
-					<label class="col-sm-3 col-sm-offset-3 headline-admin">配送先</label>
+					<label class="col-sm-3 col-sm-offset-3 caption-admin">配送先</label>
 					<p class="col-sm-6 p-admin">
 						<%= "〒" + @order.delivery_zip_code + " " + @order.delivery_address %><br>
 						<%= @order.delivery_name %>
@@ -18,12 +18,12 @@
 				</div>
 
 				<div class="row">
-					<label class="col-sm-3 col-sm-offset-3 headline-admin">支払い方法</label>
+					<label class="col-sm-3 col-sm-offset-3 caption-admin">支払い方法</label>
 					<%= @order.is_credit, class: 'col-sm-6' %>
 				</div>
 
 				<div class="row">
-					<label class="col-sm-3 col-sm-offset-3 headline-admin">注文ステータス</label>
+					<label class="col-sm-3 col-sm-offset-3 caption-admin">注文ステータス</label>
 					<div class="col-sm-6">
 						<%= form_for [:admins, @order] do |f| %>
 							<%= f.select :ordered_status, Order.ordered_statuses.keys.to_a %>
@@ -37,12 +37,12 @@
 					<!-- 注文商品一覧 -->
 					<table class="table col-sm-8 table-responsive table-admin">
 						<tr>
-							<th class="headline-admin">商品名</th>
-							<th class="headline-admin">単価（税込）</th>
-							<th class="headline-admin">数量</th>
-							<th class="headline-admin">小計</th>
-							<th class="headline-admin">製作ステータス</th>
-							<th class="headline-admin"></th>
+							<th class="caption-admin">商品名</th>
+							<th class="caption-admin">単価（税込）</th>
+							<th class="caption-admin">数量</th>
+							<th class="caption-admin">小計</th>
+							<th class="caption-admin">製作ステータス</th>
+							<th class="caption-admin"></th>
 						</tr>
 						<% @ordered_products.each do |ordered_product| %>
 							<tr>
@@ -62,17 +62,17 @@
 					<!-- 金額 -->
 					<div class="col-sm-4">
 						<div class="row">
-							<label class="col-sm-8 headline-admin">商品合計金額</label>
+							<label class="col-sm-8 caption-admin">商品合計金額</label>
 							<p class="col-sm-4 p-admin"><% @ordered_products.subtotal_price %>円</p>
 						</div>
 
 						<div class="row">
-							<label class="col-sm-8 headline-admin">送料</label>
+							<label class="col-sm-8 caption-admin">送料</label>
 							<p class="col-sm-4 p-admin"><%= @order.postage %></p>
 						</div>
 
 						<div class="row">
-							<label class="col-sm-8 headline-admin">請求金額</label>
+							<label class="col-sm-8 caption-admin">請求金額</label>
 							<strong class="col-sm-4 p-admin"><%= @order.order_total %></strong>
 						</div>
 					</div>
