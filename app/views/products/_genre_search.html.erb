@@ -1,23 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-2">
-      <table class="table table-bordered table-hover text-center ec-genre-list">
+
+      <table class="table" >
         <tr>
           <td>
-            <%= link_to "全商品を表示", products_path %>
+            <h5><%= link_to "全商品を表示", products_path %></h5>
           </td>
         </tr>
+
         <% genres.each do |genre| %>
         <!-- admin側のgenreが有効だった場合 -->
           <% if genre.is_active == "有効" %>
             <tr>
               <td>
-                <%= link_to genre.name, products_path(genre_id: genre.id) %>
+                <h5><%= link_to genre.name, products_path(genre_id: genre.id) %></h5>
               </td>
             </tr>
           <% end %>
         <% end %>
       </table>
+
     </div>
   </div>
 </div>
