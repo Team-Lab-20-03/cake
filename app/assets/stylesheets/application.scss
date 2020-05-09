@@ -21,6 +21,7 @@ body {
     background-image: image-url("");
     background-attachment: fixed;
     background-size: cover;
+    margin-top: 120px;
 }
 
 header {
@@ -31,34 +32,34 @@ header .navbar-left span {
     font-size: 25px;
 }
 
-body {
-    margin-top: 120px;
-}
 
 /* admin */
 .bg-admin {
-	background-color: #fffffe;
+	background-color: #fff;
 	width: 100%;
 	height: auto;
 }
 .headline-admin {
-	color: #33272a;
+	color: #333;
+}
+.caption-admin {
+	color: #333;
 }
 .p-admin {
-	color: #594a4e;
+	color: #5E5E5E;
 }
 .table-admin {
-	background-color: #faeee7;
+	background-color: #D5D5D5;
 }
 .card-admin {
-	background-color: #faeee7;
+	background-color: #D5D5D5;
 	padding: 20px 0;
 }
 .form-admin {
-	background-color: #faeee7;
+	background-color: #D5D5D5;
 }
 .btn-admin {
-	color: #33272a;
-	background-color: #ff8ba7;
+	color: #D5D5D5;
+	background-color: #5E5E5E;
 }
 /* admin */

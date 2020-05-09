@@ -8,23 +8,23 @@
 				</div>
 				<div class="col-sm-7">
 					<div class="row">
-						<label class="col-sm-4 headline-admin">商品名</label>
+						<label class="col-sm-4 caption-admin">商品名</label>
 						<p class="col-sm-8 p-admin"><%= @product.name %></p>
 					</div>
 					<div class="row">
-						<label class="col-sm-4 headline-admin">説明文</label>
+						<label class="col-sm-4 caption-admin">説明文</label>
 						<p class="col-sm-8 p-admin"><%= @product.introduction %></p>
 					</div>
 					<div class="row">
-						<label class="col-sm-4 headline-admin">ジャンル</label>
+						<label class="col-sm-4 caption-admin">ジャンル</label>
 						<p class="col-sm-8 p-admin"><%= @product.genre.name %></p>
 					</div>
 					<div class="row">
-						<label class="col-sm-4 headline-admin">税抜価格(税込価格)</label>
+						<label class="col-sm-4 caption-admin">税抜価格(税込価格)</label>
 						<p class="col-sm-8 p-admin"><%= @product.price %>(<%= @product.tax_price %>)円</p>
 					</div>
 					<div class="row">
-						<label class="col-sm-4 headline-admin">販売ステータス</label>
+						<label class="col-sm-4 caption-admin">販売ステータス</label>
 						<p class="col-sm-8 p-admin"><%= @product.is_active %></p>
 					</div>
 

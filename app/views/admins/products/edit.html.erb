@@ -10,35 +10,35 @@
 
 				<div class="form-horizontal col-sm-7">
 					<div class="form-group">
-						<%= f.label :name, "商品名", class: 'col-sm-4 headline-admin' %>
+						<%= f.label :name, "商品名", class: 'col-sm-4 caption-admin' %>
 						<div class="col-sm-8">
 							<%= f.text_field :name, autofocus: true, class: 'form-control' %>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<%= f.label :introduction, "説明文", class: 'col-sm-4 headline-admin' %>
+						<%= f.label :introduction, "説明文", class: 'col-sm-4 caption-admin' %>
 						<div class="col-sm-8">
 							<%= f.text_area :introduction, autofocus: true, class: 'form-control' %>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<%= f.label :genre_id, "ジャンル選択", class: 'col-sm-4 headline-admin' %>
+						<%= f.label :genre_id, "ジャンル選択", class: 'col-sm-4 caption-admin' %>
 						<div class="col-sm-8">
 							<%= f.collection_select :genre_id, Genre.all, :id, :name, :include_blank => "--選択してください" %>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<%= f.label :price, "税抜価格", class: 'col-sm-4 headline-admin' %>
+						<%= f.label :price, "税抜価格", class: 'col-sm-4 caption-admin' %>
 						<div class="col-sm-5">
 							<%= f.text_field :price, autofocus: true, class: 'form-control' %>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<%= f.label :is_active, "販売ステータス", class: 'col-sm-4 headline-admin' %>
+						<%= f.label :is_active, "販売ステータス", class: 'col-sm-4 caption-admin' %>
 						<div class="col-sm-8">
 							<%= f.select :is_active, Product.is_actives.keys, :include_blank => "--選択してください" %>
 						</div>
