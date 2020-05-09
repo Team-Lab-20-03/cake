@@ -1,11 +1,18 @@
 <br>
+
 <div style="text-align:center">
-  <h2><strong>ご購入ありがとうございました♪<br>
-  	<p>ご自宅に届くまでもうしばらくお待ちください！</strong></p></h2>
+  <%= image_tag('flower.jpg')  %>
+</div>
+
+<font face="sans-serif", color="grey">
+<div style="text-align:center">
+  <h2><strong>ご購入誠にありがとうございました♪</strong><br>
+  	ご注文内容確認メールを<font color="maroon"><u><%= current_customer.email %></u></font>宛に送信しました。<br>
+  	ご自宅に届くまでいましばらくお待ちください！</h2></font>
 </div>
 
 
 <div style="text-align:right">
-　<h4><strong><%= link_to "商品一覧ページへ戻るんるんへ♬ Yeah..Yeah...Huh〜〜〜！！！/ ", products_path, class:"text-danger" %>
-<%= link_to "あなたの注文履歴一覧へ", orders_path(current_customer.id), class:"text-muted" %></h4></strong>
+　  <h4><%= link_to "商品一覧ページへ戻る/ ", products_path %>
+    <%= link_to "あなたの注文履歴一覧へ", orders_path(current_customer.id) %></h4>
 </div>
