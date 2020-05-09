@@ -1,82 +1,84 @@
-<h3 class="text-center">注文履歴詳細</h3>
-<div class="container">
-	<div class="row">
-		<div class="col-xs-10 col-xs-offset-1">
-			<!-- 注文者情報 -->
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">購入者</label>
-				<%= link_to @order.delivery_name, admins_customer_path(@order.customer_id), class: 'col-sm-6'  %>
-			</div>
-
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">配送先</label>
-				<p class="col-sm-6">
-					<%= "〒" + @order.delivery_zip_code + " " + @order.delivery_address %><br>
-					<%= @order.delivery_name %>
-				</p>
-			</div>
-
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">支払い方法</label>
-				<%= @order.is_credit, class: 'col-sm-6' %>
-			</div>
-
-			<div class="row">
-				<label class="col-sm-3 col-sm-offset-3">注文ステータス</label>
-				<div class="col-sm-6">
-					<%= form_for [:admins, @order] do |f| %>
-						<%= f.select :ordered_status, Order.ordered_statuses.keys.to_a %>
-						<%= f.submit '更新' %>
-					<% end %>
+<div class="bg-admin">
+	<h3 class="text-center headline-admin"><strong>注文履歴詳細</strong></h3>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 card-admin">
+				<!-- 注文者情報 -->
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">購入者</label>
+					<%= link_to @order.delivery_name, admins_customer_path(@order.customer_id), class: 'col-sm-6 p-admin'  %>
 				</div>
-			</div>
-			<!-- 注文者情報 -->
 
-			<div class="row">
-				<!-- 注文商品一覧 -->
-				<table class="table col-sm-8">
-					<tr>
-						<th>商品名</th>
-						<th>単価（税込）</th>
-						<th>数量</th>
-						<th>小計</th>
-						<th>製作ステータス</th>
-						<th></th>
-					</tr>
-					<% @ordered_products.each do |ordered_product| %>
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">配送先</label>
+					<p class="col-sm-6 p-admin">
+						<%= "〒" + @order.delivery_zip_code + " " + @order.delivery_address %><br>
+						<%= @order.delivery_name %>
+					</p>
+				</div>
+
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">支払い方法</label>
+					<%= @order.is_credit, class: 'col-sm-6' %>
+				</div>
+
+				<div class="row">
+					<label class="col-sm-3 col-sm-offset-3 headline-admin">注文ステータス</label>
+					<div class="col-sm-6">
+						<%= form_for [:admins, @order] do |f| %>
+							<%= f.select :ordered_status, Order.ordered_statuses.keys.to_a %>
+							<%= f.submit '更新', class: 'btn btn-admin' %>
+						<% end %>
+					</div>
+				</div>
+				<!-- 注文者情報 -->
+
+				<div class="row">
+					<!-- 注文商品一覧 -->
+					<table class="table col-sm-8 table-responsive table-admin">
 						<tr>
-							<td><%= ordered_product.name %></td>
-							<td><%= ordered_product.price %></td>
-							<td><%= ordered_product.quantity %></td>
-							<td><%= ordered_product.subtotal_price %></td>
-							<%= form_for [:admins, ordered_product] do |f| %>
-								<td><%= f.select :create_status, OrderedProduct.create_statuses.keys.to_a %></td>
-								<td><%= f.submit '更新', class: 'btn btn-primary' %></td>
-							<% end %>
+							<th class="headline-admin">商品名</th>
+							<th class="headline-admin">単価（税込）</th>
+							<th class="headline-admin">数量</th>
+							<th class="headline-admin">小計</th>
+							<th class="headline-admin">製作ステータス</th>
+							<th class="headline-admin"></th>
 						</tr>
-					<% end %>
-				</table>
-				<!-- 注文商品一覧 -->
+						<% @ordered_products.each do |ordered_product| %>
+							<tr>
+								<td class="p-admin"><%= ordered_product.name %></td>
+								<td class="p-admin"><%= ordered_product.price %></td>
+								<td class="p-admin"><%= ordered_product.quantity %></td>
+								<td class="p-admin"><%= ordered_product.subtotal_price %></td>
+								<%= form_for [:admins, ordered_product] do |f| %>
+									<td><%= f.select :create_status, OrderedProduct.create_statuses.keys.to_a %></td>
+									<td><%= f.submit '更新', class: 'btn btn-admin' %></td>
+								<% end %>
+							</tr>
+						<% end %>
+					</table>
+					<!-- 注文商品一覧 -->
 
-				<!-- 金額 -->
-				<div class="col-sm-4">
-					<div class="row">
-						<label class="col-sm-8">商品合計金額</label>
-						<p class="col-sm-4"><% @ordered_products.subtotal_price %>円</p>
-					</div>
+					<!-- 金額 -->
+					<div class="col-sm-4">
+						<div class="row">
+							<label class="col-sm-8 headline-admin">商品合計金額</label>
+							<p class="col-sm-4 p-admin"><% @ordered_products.subtotal_price %>円</p>
+						</div>
 
-					<div class="row">
-						<label class="col-sm-8">送料</label>
-						<p class="col-sm-4"><%= @order.postage %></p>
-					</div>
+						<div class="row">
+							<label class="col-sm-8 headline-admin">送料</label>
+							<p class="col-sm-4 p-admin"><%= @order.postage %></p>
+						</div>
 
-					<div class="row">
-						<label class="col-sm-8">請求金額</label>
-						<strong class="col-sm-4"><%= @order.order_total %></strong>
+						<div class="row">
+							<label class="col-sm-8 headline-admin">請求金額</label>
+							<strong class="col-sm-4 p-admin"><%= @order.order_total %></strong>
+						</div>
 					</div>
+					<!-- 金額 -->
 				</div>
-				<!-- 金額 -->
-			</div>
-		</div><!-- col-xs-10 -->
-	</div> <!-- row -->
-</div> <!-- container -->
+			</div><!-- col-xs-10 -->
+		</div> <!-- row -->
+	</div> <!-- container -->
+</div>
