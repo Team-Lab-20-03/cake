@@ -19,7 +19,7 @@
 
 				<div class="row">
 					<label class="col-sm-3 col-sm-offset-3 caption-admin">支払い方法</label>
-					<%= @order.is_credit, class: 'col-sm-6' %>
+					<%= @order.is_credit %>
 				</div>
 
 				<div class="row">
@@ -63,7 +63,7 @@
 					<div class="col-sm-4">
 						<div class="row">
 							<label class="col-sm-8 caption-admin">商品合計金額</label>
-							<p class="col-sm-4 p-admin"><% @ordered_products.subtotal_price %>円</p>
+							<p class="col-sm-4 p-admin"><%= @order.product_sum %>円</p>
 						</div>
 
 						<div class="row">

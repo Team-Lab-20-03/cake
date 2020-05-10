@@ -9,4 +9,6 @@ class OrderedProduct < ApplicationRecord
 	def subtotal_price
 		price * self.quantity
 	end
+
+
 end
