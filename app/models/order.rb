@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
 
-	has_many :orderd_products
+	has_many :ordered_products
 	belongs_to :customer
 
 	# 注文ステータス 支払い方法
