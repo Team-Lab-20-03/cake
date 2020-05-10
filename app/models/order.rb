@@ -1,17 +1,17 @@
 class Order < ApplicationRecord
 
-	has_many :orderd_products
+	has_many :ordered_products
 	belongs_to :customer
 
 	# 注文ステータス 支払い方法
 	enum ordered_status: {入金待ち: 0, 入金確認: 1, 製作中: 2, 発送準備中: 3, 発送済み: 4}
 	enum is_credit: {銀行振込: true, クレジットカード: false}
 
-	# 注文個数
+	#注文個数
 	def total_count
 		total = 0
 		ordered_products.each do |ordered_product|
-			total += ordered_product.count
+			total += ordered_product.quantity
 		end
 		total
 	end
@@ -31,7 +31,7 @@ class Order < ApplicationRecord
 		ordered_products.each do |ordered_product|
 			total += ordered_product.subtotal_price
 		end
-		total + postage
+		total + self.postage_price
 	end
 
 
