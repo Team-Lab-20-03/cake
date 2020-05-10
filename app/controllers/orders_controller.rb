@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
   end
 
   def confirm  #new.htmlの確認画面へのボタン
+    @cart_items = current_customer.cart_items.all
     @order = current_customer.orders.new
     @is_credit = params[:is_credit]
     case params[:delivery_address_button]

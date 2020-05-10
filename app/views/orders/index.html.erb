@@ -23,9 +23,9 @@
 							<%= order.delivery_address %>
 							<%= order.delivery_name %>
 						</td>
-						<td><%= order.price %></td>
-						<td><%= order.status %></td>
-						<td><%= link_to "表示する", order_path %></td>
+						<td><%= order.order_total %></td>
+						<td><%= order.ordered_status %></td>
+						<td><%= link_to "表示する", order_path(order) %></td>
 					</tr>
 					<% end %>
 				</table>
