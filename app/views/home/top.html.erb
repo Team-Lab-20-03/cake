@@ -2,17 +2,16 @@
 <!-- ヘッダー挿入 -->
 
 <div class="container">
-  <div class="row row-eq-height">
-    <div class="col-md-3">
-     <!-- renderで部分テンプレート入る？ジャンル検索コーナー -->
-　　　 <h3>ジャンル検索</h3>
-      <%= render 'products/genre_search', genres: @genres %>
-
+  <div class="row">
+    <div class="col-xs-10 text-center">
+      <h4><%= render "products/genre_search", genres: @genres %></h4>
     </div>
+  </div>
+</div>
 
   <!-- <div class="row"> -->
 
-    <div class="col-md-9">
+    <div class="col-xs-10">
       <div class="row">
         <div class="introduction", align="center">
           <font face="monospace">
@@ -21,41 +20,32 @@
              会員でない方でも商品の閲覧は可能です！<br>
              購入には会員登録が必要になります。</h4></font>
         </div>
-      </div>
 
-
-      <div class="row">
         <div class="recommend">
           <font face="monospace" align="center">
             <h3>〜Today's Recommend〜</h3>
-      <table>
-      <!-- 商品のeachメソッド入れる -->
-      <% @products.each do |product| %>
-      <!-- :imageのところはカラム名image_idを想定してる。 -->
-            <td>
-              <%= link_to product_path(product.id) do %>
-              <p><%= attachment_image_tag product, :image, size: "120x120"%></p>
-              <p><%= product.name %></p>
-              <p>¥<%= product.price %></p>
-              <% end %>
-            </td>
-      <% end %>
+          </font>
+        </div>
 
-      </table>
+            <table>
+            <!-- 商品のeachメソッド入れる -->
+            <% @products.each do |product| %>
+            <!-- :imageのところはカラム名image_idを想定してる。 -->
+                  <td>
+                    <%= link_to product_path(product.id) do %>
+                    <p><%= attachment_image_tag product, :image, size: "120x120"%></p>
+                    <p><%= product.name %></p>
+                    <p>¥<%= product.price %></p>
+                    <% end %>
+                  </td>
+            <% end %>
+            </table>
 
-      <div class="link", align="right">
+          <div class="link", align="right">
 
-        <%= paginate @products, class: "paginate" %>
+            <%= paginate @products, class: "paginate" %>
 <!-- 足してみた -->
-
             <ins><%= link_to "もっと見る", products_path %></ins>
           </div>
-          </font>
-
         </div>
       </div>
-
-    </div>
-
-  </div>
-</div>

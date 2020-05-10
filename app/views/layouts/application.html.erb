@@ -14,9 +14,10 @@
       <div class="container">
         <nav class="nav navbar-nav navbar-left">
           <span>NAGANO CAKE</span>
-          <nav>
+        </nav>
+          <nav class="nav navbar-nav navbar-right">
             <% if admin_signed_in? %>
-              <ul class="nav navbar-nav navbar-left">
+              <ul class="nav navbar-nav">
                 <li><%= link_to "Home", admins_home_top_path %></li>
                 <li><%= link_to "商品一覧", admins_products_path %></li>
                 <li><%= link_to "会員一覧", admins_customers_path %></li>
@@ -26,7 +27,7 @@
               </ul>
 
             <% elsif customer_signed_in? %>
-              <ul class="nav navbar-nav navbar-left">
+              <ul class="nav navbar-nav">
                 <li><%= link_to "Home", root_path %></li>
                 <li><%= link_to "My Page", customer_path(current_customer.id) %></li>
                 <li><%= link_to "Products", products_path %></li>
@@ -35,7 +36,7 @@
               </ul>
 
             <% else %>
-              <ul class="nav navbar-nav navbar-left">
+              <ul class="nav navbar-nav">
                 <li><%= link_to "Home", root_path %></li>
                 <li><%= link_to "Products", products_path %></li>
                 <li><%= link_to "Sign Up", new_customer_registration_path %></li>
@@ -44,6 +45,7 @@
             <% end %>
           </nav>
         </nav>
+        </br>
       </div>
     </header>
 

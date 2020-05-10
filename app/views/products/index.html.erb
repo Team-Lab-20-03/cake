@@ -1,32 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-10">
-      <table class="table">
-          <h5>Genres</h5>
-        <tbody>
-          <td><%= render "products/genre_search", genres: @genre %></td>
-        </tbody>
-      </table>
-
-      <div class="col-xs-10">
-        <table class="table">
-          <div class="col-xs-2">
-            <% @products.each do |product| %>
-              <td class="image_id">
-                <%= link_to product_path(product) do %>
-                <%= attachment_image_tag product, :image, size: "280x280" %>
-                <% end %>
-              </td>
-              <td class="name">
-                <p><%= product.name %></p>
-                <p><%= "¥#{product.price}" %></p>
-                <p><%= link_to "商品詳細", product_path(product), class: "btn btn-primary" %></p>
-              </td>
-              <% end %>
-          </div>
-        </table>
-      </div>
-
+    <div class="col-xs-10 text-center">
+      <h4><%= render "products/genre_search", genres: @genre %></h4>
     </div>
-  </div>
+
+<div class="row">
+          <% @products.each do |product| %>
+          <div class="col-md-3">
+              <%= link_to product_path(product) do %>
+              <%= attachment_image_tag product, :image, size: "200x200" %>
+              <%= product.name %>
+              <% end %>
+              <%= "#{product.price}円(税抜)" %>
+           </div>
+         <% end %>
 </div>
+
+
