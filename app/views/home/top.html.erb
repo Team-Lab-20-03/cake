@@ -3,7 +3,7 @@
 
 <div class="container">
   <div class="row row-eq-height">
-    <div class="col-md-3">
+    <div class="col-md-2">
      <!-- renderで部分テンプレート入る？ジャンル検索コーナー -->
 　　　 <h3>ジャンル検索</h3>
       <%= render 'products/genre_search', genres: @genres %>
@@ -12,7 +12,7 @@
 
   <!-- <div class="row"> -->
 
-    <div class="col-md-9">
+    <div class="col-md-10">
       <div class="row">
         <div class="introduction", align="center">
           <font face="monospace">
@@ -25,16 +25,16 @@
 
 
       <div class="row">
-        <div class="recommend">
+        <div class="recommend", style="margin:0 40px;>
           <font face="monospace" align="center">
-            <h3>〜Today's Recommend〜</h3>
+            <h2>〜♪Today's Recommend♪〜</h2>
       <table>
       <!-- 商品のeachメソッド入れる -->
       <% @products.each do |product| %>
       <!-- :imageのところはカラム名image_idを想定してる。 -->
             <td>
               <%= link_to product_path(product.id) do %>
-              <p><%= attachment_image_tag product, :image, size: "120x120"%></p>
+              <p><%= attachment_image_tag product, :image, size: "160x160"%></p>
               <p><%= product.name %></p>
               <p>¥<%= product.price %></p>
               <% end %>
@@ -44,10 +44,8 @@
       </table>
 
       <div class="link", align="right">
-
-        <%= paginate @products, class: "paginate" %>
-<!-- 足してみた -->
-
+        <%= paginate @products, class: "paginate" %><br>
+<!-- ページネーション -->
             <ins><%= link_to "もっと見る", products_path %></ins>
           </div>
           </font>

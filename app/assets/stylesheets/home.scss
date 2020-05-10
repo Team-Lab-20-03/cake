@@ -3,10 +3,17 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-
+.container{
+ background-color:"";
+}
 
 
 .row-eq-height {
     display: flex;
     flex-wrap: wrap;
+}
+
+.recommend{
+ margin: 0 auto;
+ padding:70px;
 }

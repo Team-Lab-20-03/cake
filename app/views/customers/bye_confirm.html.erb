@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
    <div style="text-align:center">
-    <h4><strong>本当に退会しますか？？</strong></h4>
+    <h4><strong>え、、本当に退会するの？？これでいいの？</strong></h4>
 
     <p>退会すると、会員登録情報や<br>
   	   これまでの購入履歴が閲覧できなくなります。<br>
@@ -12,6 +12,10 @@
   	  <%= link_to "退会しない", customer_path(current_customer.id), class:"btn btn-success" %>
 
   	  <%= link_to "退会する", bye_bye_customer_path(@customer.id), method: :patch, class:"btn btn-warning btn-md" %>
+
+      <div style="text-align:center">
+       <%= image_tag('oohara.jpg')  %>
+      </div>
 
    </div>
   </div>
