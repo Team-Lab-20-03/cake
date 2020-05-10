@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
       order_product.product_id = item.product.id
       order_product.order_id = @order.id
       order_product.quantity = item.quantity
-      order_product.price = item.product.price
+      order_product.price = item.product.tax_price
       order_product.name = item.product.name
       order_product.save  #商品関連の保存
       item.destroy  #１つずつカートをからに
