@@ -20,18 +20,14 @@ class Order < ApplicationRecord
 	def product_sum
 		total = 0
 		ordered_products.each do |ordered_product|
-			total += ordered_product.product.tax_price
+			total += ordered_product.price * ordered_product.quantity
 		end
 		total
 	end
 
 	# 請求金額
 	def order_total
-		total = 0
-		ordered_products.each do |ordered_product|
-			total += ordered_product.product.tax_price
-		end
-		total + self.postage
+		product_sum + self.postage
 	end
 
 
@@ -41,18 +37,14 @@ class Order < ApplicationRecord
 	def cart_sum(user)
 		total = 0
 		user.cart_items.each do |cart_product|
-			total += cart_product.product.tax_price
+			total += cart_product.product.tax_price * cart_product.quantity
 		end
 		total
 	end
 
 	# 注文前の請求金額
 	def total(user)
-		total = 0
-		user.cart_items.each do |cart_product|
-			total += cart_product.product.tax_price
-		end
-		total + self.postage_price
+		cart_sum(user) + self.postage_price
 	end
 
 	# 送料
