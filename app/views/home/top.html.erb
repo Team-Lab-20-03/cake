@@ -7,30 +7,38 @@
       <h4><%= render "products/genre_search", genres: @genres %></h4>
     </div>
 
-
   <!-- <div class="row"> -->
 
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="row">
         <div class="introduction", align="center">
           <font face="monospace">
             <h1>ようこそ、NaganoCake.comへ！</h1><br>
              <h4><font color="#FF99CC">感動が集まる場所をもっとハッピーに！</font><br>信州・長野特産フルーツをふんだんに使用した<br>オリジナルCakeの<ins>グローバルオンラインストア</ins>です。<br>
              会員でない方でも商品の閲覧は可能です！<br>
-             購入には会員登録が必要になります。</h4></font>
+             購入には会員登録が必要になります。</h4>
+          </font>
         </div>
       </div>
 
+  <!-- </div> -->
 
- <!-- <div class="row"> -->
+
+      <div class="cake2">
+        <%= image_tag('cake2.jpg') %>
+      </div>
+
+
+
       <div>
-        <div class="recommend", style="margin:0 40px;>
+        <div class="recommend">
           <font face="monospace" align="center">
             <h2>〜♪Today's Recommend♪〜</h2>
-      <table>
-      <!-- 商品のeachメソッド入れる -->
-      <% @random.each do |product| %>
-      <!-- :imageのところはカラム名image_idを想定してる。 -->
+        <!-- tableの中央に寄せる -->
+        <table Valign=center align=center>
+        <!-- 商品のeachメソッド入れる -->
+        <% @random.each do |product| %>
+        <!-- :imageのところはカラム名image_idを想定してる。 -->
             <td>
               <%= link_to product_path(product.id) do %>
               <p><%= attachment_image_tag product, :image, size: "160x160"%></p>
@@ -38,13 +46,13 @@
               <p>¥<%= product.price %></p>
               <% end %>
             </td>
-      <% end %>
+        <% end %>
 
-      </table>
+        </table>
 
-      <div class="link", align="right">
-        <%= paginate @products, class: "paginate" %><br>
-<!-- ページネーション -->
+          <div class="link", align="right">
+          <%= paginate @products, class: "paginate" %><br>
+        <!-- ページネーション -->
             <ins><%= link_to "もっと見る", products_path %></ins>
           </div>
           </font>
