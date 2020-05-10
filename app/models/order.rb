@@ -11,7 +11,7 @@ class Order < ApplicationRecord
 	def total_count
 		total = 0
 		ordered_products.each do |ordered_product|
-			total += ordered_product.count
+			total += ordered_product.quantity
 		end
 		total
 	end
@@ -20,7 +20,7 @@ class Order < ApplicationRecord
 	def product_sum
 		total = 0
 		ordered_products.each do |ordered_product|
-			total += ordered_product.subtotal_price
+			total += ordered_product.product.tax_price
 		end
 		total
 	end
@@ -29,9 +29,9 @@ class Order < ApplicationRecord
 	def order_total
 		total = 0
 		ordered_products.each do |ordered_product|
-			total += ordered_product.subtotal_price
+			total += ordered_product.product.tax_price
 		end
-		total + postage
+		total + self.postage
 	end
 
 
