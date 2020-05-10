@@ -30,7 +30,7 @@
             <h2>〜♪Today's Recommend♪〜</h2>
       <table>
       <!-- 商品のeachメソッド入れる -->
-      <% @products.each do |product| %>
+      <% @random.each do |product| %>
       <!-- :imageのところはカラム名image_idを想定してる。 -->
             <td>
               <%= link_to product_path(product.id) do %>
