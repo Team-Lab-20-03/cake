@@ -9,49 +9,47 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<body>
-     <header class="nav navbar-fixed-top navbar-inverse">
+  <body>
+    <header class="nav navbar-fixed-top navbar-inverse">
       <div class="container">
         <nav class="nav navbar-nav navbar-left">
           <span>NAGANO CAKE</span>
-      <nav>
-        <% if admin_signed_in? %>
-            <ul class="nav navbar-nav navbar-left">
-              <li><%= link_to "Home", admins_home_top_path %></li>
-              <li><%= link_to "商品一覧", admins_products_path %></li>
-              <li><%= link_to "会員一覧", admins_customers_path %></li>
-              <li><%= link_to "注文履歴一覧", admins_orders_path %></li>
-              <li><%= link_to "ジャンル一覧", admins_genres_path %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-            </ul>
+        </nav>
+          <nav class="nav navbar-nav navbar-right">
+            <% if admin_signed_in? %>
+              <ul class="nav navbar-nav">
+                <li><%= link_to "Home", admins_home_top_path %></li>
+                <li><%= link_to "商品一覧", admins_products_path %></li>
+                <li><%= link_to "会員一覧", admins_customers_path %></li>
+                <li><%= link_to "注文履歴一覧", admins_orders_path %></li>
+                <li><%= link_to "ジャンル一覧", admins_genres_path %></li>
+                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+              </ul>
 
-        <% elsif customer_signed_in? %>
+            <% elsif customer_signed_in? %>
+              <ul class="nav navbar-nav">
+                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "My Page", customer_path(current_customer.id) %></li>
+                <li><%= link_to "Products", products_path %></li>
+                <li><%= link_to "Cart Items", cart_items_path(current_customer.id) %></li>
+                <li><%= link_to "Log Out", destroy_customer_session_path, method: :delete %></li>
+              </ul>
 
-            <ul class="nav navbar-nav navbar-left">
-              <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "My Page", customer_path(current_customer.id) %></li>
-              <li><%= link_to "Products", products_path %></li>
-              <li><%= link_to "Cart Items", cart_items_path(current_customer.id) %></li>
-              <li><%= link_to "Log Out", destroy_customer_session_path, method: :delete %></li>
-            </ul>
-
-        <% else %>
-
-            <ul class="nav navbar-nav navbar-left">
-              <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "Products", products_path %></li>
-              <li><%= link_to "Sign Up", new_customer_registration_path %></li>
-              <li><%= link_to "Log In", new_customer_session_path %></li>
-            </ul>
+            <% else %>
+              <ul class="nav navbar-nav">
+                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "Products", products_path %></li>
+                <li><%= link_to "Sign Up", new_customer_registration_path %></li>
+                <li><%= link_to "Log In", new_customer_session_path %></li>
+              </ul>
+            <% end %>
           </nav>
+        </nav>
+        </br>
+      </div>
+    </header>
 
-        <% end %>
-
-       </nav>
-    </div>
-  </header>
-
-  <%= yield %>
+    <%= yield %>
 
   </body>
 </html>
