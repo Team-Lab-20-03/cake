@@ -7,6 +7,6 @@ class OrderedProduct < ApplicationRecord
 
 	# 注文商品小計を定義
 	def subtotal_price
-		ordered_price * count
+		price * self.quantity
 	end
 end
