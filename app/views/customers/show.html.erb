@@ -9,6 +9,7 @@
     <br>
 
    <div class="row">
+   <div class="cover">
     <div class="group">
       <label class="col-sm-4 text-center">お客様登録情報</label>
 
@@ -56,12 +57,12 @@
     <div class="row">
       <div class="col-xs-8">
         <div class="group">
-          <label class="col-sm-3 text-center">配送先</label>
+          <label class="col-sm-3 text-center">　配送先</label>
           <%= link_to "一覧を見る", deliveries_path(current_customer.id), class:"btn btn-info btn-xs" %>
         </div></br>
 
         <div class="group">
-          <label class="col-sm-3 text-center">注文履歴</label>
+          <label class="col-sm-3 text-center">　　注文履歴</label>
           <%= link_to "一覧を見る", orders_path(current_customer.id), class:"btn btn-info btn-xs" %>
         </div>
      </div>
@@ -72,6 +73,7 @@
        <p><strong><%= link_to "戻る", products_path, class:"text-info" %></strong></p>
      </div>
 
+    </div>
     </div>
  </div>
 
