@@ -1,7 +1,7 @@
 <div class="bg-admin">
-	<h3 class="text-center headline-admin"><strong>商品編集</strong></h3>
 	<div class="container">
 		<div class="row card-admin">
+			<h3 class="text-center headline-admin"><strong>商品編集</strong></h3>
 			<%= form_for [:admins, @product] do |f| %>
 				<div class="col-sm-5">
 					<%= attachment_image_tag @product, :image, size:"250x300" %>
