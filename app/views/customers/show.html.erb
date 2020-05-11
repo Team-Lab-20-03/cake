@@ -1,24 +1,23 @@
 <!-- customers/show.html.erb -->
 <!-- render部分テンプレート -->
 
-
  <div class="container">
-  <!-- <div class="row"> -->
-    <h3><mark>
-      <strong><%= current_customer.last_name %> <%= current_customer.first_name %>　</strong>様のマイページ</mark></h3>
+  <h3><mark>
+    <strong><%= current_customer.last_name %> <%= current_customer.first_name %>　</strong>様のマイページ</mark></h3>
     <br>
 
-   <div class="row">
-   <div class="cover">
-    <div class="group">
-      <label class="col-sm-4 text-center">お客様登録情報</label>
+  <div class="row">
+    <div class="cover">
+      <div class="group">
+        <label class="col-sm-4 text-center">お客様登録情報</label>
 
         <button>
         <%= link_to "編集する", edit_customer_path(current_customer.id), class:"glyphicon glyphicon-pencil" %></button>
         <%= link_to "パスワード変更もしくは忘れた方はこちら", new_customer_password_path(current_customer.id), class:"btn btn-warning btn-xs" %>
-    </div></br>
+      </div></br>
 
-    <%= form_for (@customer), html: { class: 'form-horizontal' } do |f| %>
+      <%= form_for (@customer), html: { class: 'form-horizontal' } do |f| %>
+
     <!-- <table class="table table-bordered"> -->
       <div class="form-group">
         <label class="col-sm-4 text-center">氏名</label>
@@ -54,26 +53,23 @@
       <% end %></br>
     <!-- </table> -->
 
-    <div class="row">
-      <div class="col-xs-8">
-        <div class="group">
-          <label class="col-sm-3 text-center">　配送先</label>
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="group">
+        <label class="col-sm-3 text-center">　配送先</label>
           <%= link_to "一覧を見る", deliveries_path(current_customer.id), class:"btn btn-info btn-xs" %>
-        </div></br>
+      </div></br>
 
-        <div class="group">
-          <label class="col-sm-3 text-center">　　注文履歴</label>
+      <div class="group">
+        <label class="col-sm-3 text-center">　　注文履歴</label>
           <%= link_to "一覧を見る", orders_path(current_customer.id), class:"btn btn-info btn-xs" %>
-        </div>
-     </div>
+      </div>
 
 
-     <div class="col-xs4">
-       <br><br>
-       <p><strong><%= link_to "戻る", products_path, class:"text-info" %></strong></p>
-     </div>
-
+      <div style="text-align:center">
+       <p><strong>　　　<%= link_to "戻る", products_path, class:"text-info" %></strong></p>
+      </div>
     </div>
-    </div>
- </div>
+  </div>
+</div>
 
