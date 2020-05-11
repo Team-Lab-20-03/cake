@@ -43,7 +43,7 @@
               <%= link_to product_path(product.id) do %>
               <p><%= attachment_image_tag product, :image, size: "160x160"%></p>
               <p><%= product.name %></p>
-              <p>¥<%= product.price %></p>
+              <p>¥<%= product.price %>　(税抜)</p>
               <% end %>
             </td>
         <% end %>
