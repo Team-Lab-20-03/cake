@@ -52,4 +52,13 @@ class Order < ApplicationRecord
 		postage_price = 800
 	end
 
+
+	# バリデーション
+    VALID_ZIP_CODE = /\A\d{3}[-]\d{4}\z/
+    validates :delivery_zip_code, presence: true, format: { with: VALID_ZIP_CODE, message: "はハイフンあり7桁で入力してください。" }
+	validates :delivery_name, presence: true
+	validates :delivery_address, presence: true
+
+
+
 end
