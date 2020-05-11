@@ -1,5 +1,5 @@
 class Admins::CustomersController < ApplicationController
-	# before_action :authenticate_admin!
+	before_action :authenticate_admin!
 
 # 管理者用 会員一覧
 	def index
