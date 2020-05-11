@@ -1,13 +1,13 @@
 <div class="container">
-	<table class="table" >
+	<table class="table">
 		<tr>
-			<td style="border:none;"><%= link_to "All Products", products_path, :style=>"color:black;" %></td>
+			<td style="border:none;"><%= link_to "All Products", products_path, :style=>"color:silver;" %></td>
 		</tr>
 		<% genres.each do |genre| %>
 		<!-- admin側のgenreが有効だった場合 -->
 		<tr>
 			<% if genre.is_active == "有効" %>
-			<td style="border:none;"><%= link_to genre.name, products_path(genre_id: genre.id), :style=>"color:black;" %></td>
+			<td style="border:none;"><%= link_to genre.name, products_path(genre_id: genre.id), :style=>"color:silver;" %></td>
 			<% end %>
 		<% end %>
 		</tr>

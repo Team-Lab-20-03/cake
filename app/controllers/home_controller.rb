@@ -5,6 +5,4 @@ class HomeController < ApplicationController
   	@genres = Genre.all #Topにもジャンル検索項目を追加する。
 
   end
-
-
 end
