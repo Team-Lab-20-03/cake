@@ -1,20 +1,18 @@
 <div class="container">
-  <div class="row" Valign=center align=center>
-    <div class="text-center">
-      <h4><%= render "products/genre_search", genres: @genre %></h4>
+    <div class="row" Valign=center align=center>
+        <div class="text-center">
+            <h4><%= render "products/genre_search", genres: @genre %></h4>
+        </div>
+        <div class="row">
+            <% @products.each do |product| %>
+            <div class="col-md-4" Valign=center align=center>
+                <%= link_to product_path(product) do %>
+                    <%= attachment_image_tag product, :image, size: "200x200" %>
+                    <p><%= product.name %></p>
+                <% end %>
+            <%= "#{product.price}円(税抜)" %>
+            </div>
+            <% end %>
+        </div>
     </div>
-
-      <div class="row">
-        <% @products.each do |product| %>
-          <div class="col-md-4" Valign=center align=center>
-              <%= link_to product_path(product) do %>
-              <%= attachment_image_tag product, :image, size: "200x200" %>
-              <p><%= product.name %></p>
-              <% end %>
-              <%= "#{product.price}円(税抜)" %>
-           </div>
-        <% end %>
-      </div>
-
-  </div>
 </div>
