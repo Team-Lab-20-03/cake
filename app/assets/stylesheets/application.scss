@@ -18,10 +18,11 @@
 @import "bootstrap";
 
 body {
-    background-image: image-url("");
+    background-image: image-url("white.jpg");
     background-attachment: fixed;
     background-size: cover;
     margin-top: 50px;
+    font-family: 'sans-serif','serif';
 }
 
 header {
