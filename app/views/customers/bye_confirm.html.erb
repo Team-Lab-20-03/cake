@@ -12,10 +12,11 @@
   	  <%= link_to "退会しない", customer_path(current_customer.id), class:"btn btn-success" %>
 
   	  <%= link_to "退会する", bye_bye_customer_path(@customer.id), method: :patch, class:"btn btn-warning btn-md" %>
-
+    <div class="oohara">
       <div style="text-align:center">
-       <%= image_tag('oohara.jpg')  %>
+       <%= image_tag 'oohara.jpg', size: "574x402"  %>
       </div>
+    </div>
 
    </div>
   </div>

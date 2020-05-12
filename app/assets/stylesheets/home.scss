@@ -2,13 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
 .container{
   background-color:"";
 }
 
-.recommend{
-  padding:70px;
+
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.cake2{
+  text-align:center;
+  margin-top:20px;
+  padding-bottom:auto;
+  height: 200px;
 }
 
 .name{
