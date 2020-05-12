@@ -5,7 +5,7 @@
  <div class="container">
   <!-- <div class="row"> -->
     <h3><mark>
-      <strong><%= current_customer.last_name %>　</strong>様のマイページ</mark></h3>
+      <strong><%= current_customer.last_name %> <%= current_customer.first_name %>　</strong>様のマイページ</mark></h3>
     <br>
 
    <div class="row">
@@ -14,7 +14,7 @@
 
         <button>
         <%= link_to "編集する", edit_customer_path(current_customer.id), class:"glyphicon glyphicon-pencil" %></button>
-        <%= link_to "パスワードを変更する", new_customer_password_path(current_customer.id), class:"btn btn-warning btn-xs" %>
+        <%= link_to "パスワード変更もしくは忘れた方はこちら", new_customer_password_path(current_customer.id), class:"btn btn-warning btn-xs" %>
     </div></br>
 
     <%= form_for (@customer), html: { class: 'form-horizontal' } do |f| %>
@@ -22,7 +22,7 @@
       <div class="form-group">
         <label class="col-sm-4 text-center">氏名</label>
         <div class="col-xs-2">
-        <%= current_customer.last_name %>　<%= current_customer.first_name %></div>
+        <%= current_customer.last_name %>　<%= current_customer.first_name %>　様</div>
       </div>
       <div class="form-group">
         <label class="col-sm-4 text-center">フリガナ</label>
