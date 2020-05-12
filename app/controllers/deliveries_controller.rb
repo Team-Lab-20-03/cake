@@ -8,11 +8,12 @@ end
 
 def create
 
-	@delivery = Delivery.new(delivery_params)
-	@delivery.customer_id = current_customer.id
-	if @delivery.save
+	delivery = Delivery.new(delivery_params)
+	delivery.customer_id = current_customer.id
+	if delivery.save
 	redirect_to deliveries_path
 	else
+	  @delivery = delivery
       render action: :index
     end
 
@@ -26,10 +27,11 @@ end
 
 def update
 
-	@delivery_address = Delivery.find(params[:id])
-	if @delivery_address.update(delivery_params)
+	delivery_address = Delivery.find(params[:id])
+	if delivery_address.update(delivery_params)
 	redirect_to deliveries_path
 	else
+	  @delivery_address = delivery_address
       render action: :edit
     end
 
