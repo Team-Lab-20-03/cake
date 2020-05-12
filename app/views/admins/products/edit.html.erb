@@ -3,6 +3,7 @@
 		<div class="row card-admin">
 			<h3 class="text-center headline-admin"><strong>商品編集</strong></h3>
 			<%= form_for [:admins, @product] do |f| %>
+				<%= render 'layouts/error_messages', model: f.object %>
 				<div class="col-sm-5">
 					<%= attachment_image_tag @product, :image, size:"250x300" %>
 					<%= f.attachment_field :image %>
