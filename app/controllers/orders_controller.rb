@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     @delivery = Delivery.new
   end
 
-  def confirm  #new.htmlの確認画面へのボタン
+  def confirm  #new.htmlの確認画面へのボタン 仮保存イメージ
     @cart_items = current_customer.cart_items.all
     @order = current_customer.orders.new
     @is_credit = params[:is_credit]

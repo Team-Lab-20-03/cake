@@ -30,8 +30,8 @@ class Customer < ApplicationRecord
     VALID_KANA_REGEX = /\A[\p{katakana}\p{blank}ー－]+\z/
     VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
     VALID_ZIP_CODE = /\A\d{3}[-]\d{4}\z/
-      validates :email, {presence: true, , format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }, message: '同一のメールアドレスが登録されているか、メールアドレスが不適切です。' }
-      validates :kana_first_name,:kana_last_name, presence: true, format: { with: VALID_KANA_REGEX, message: 'はカタカナで入力して下さい。'
+      validates :email, {presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
+      validates :kana_first_name,:kana_last_name, presence: true, format: { with: VALID_KANA_REGEX, message: 'はカタカナで入力して下さい。'}
       validates :first_name, :last_name, presence: true
       validates :phone_number, presence: true, format: { with: VALID_PHONE_REGEX, message: 'ハイフンなしの10桁か11桁で入力して下さい。' }
       validates :main_zip_code, presence: true, format: { with: VALID_ZIP_CODE, message: "はハイフンあり7桁で入力してください。" }

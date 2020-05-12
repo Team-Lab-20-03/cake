@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   ###customers
     root "home#top"
-    get "home/about" => "home#about"
+    get "home/notice" => "home#notice"
     resources :products, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update] do
       member do

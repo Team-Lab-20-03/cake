@@ -1,20 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-10 text-center">
+    <div class="text-center">
       <h4><%= render "products/genre_search", genres: @genre %></h4>
     </div>
+</div>
+</div>
 
-		<div class="col-xs-10">
-		    <table class="table">
-		      <div class="col-xs-2">
-		          <td class="image_id">
-		            <%= attachment_image_tag @product, :image, size: "280x280" %>
+<div class="container">
+  <div class="row">
+		<div class="text-center">
+		    <table Valign=center align=center>
+		          <td style="border:none;">
+		            <%= attachment_image_tag @product, :image, size: "400x400" %>
 		          </td>
-		          <td class="col-xs-3 text-right">
-		            <h4><%= @product.name %></h4></br>
-		            <p><%= @product.introduction %></p></br>
+		          <td style="border:none;" align=right>
+		            <h4><%= @product.name %></h4>
+		            <p><%= @product.introduction %></p>
 		            <p><%= "¥#{(@product.tax_price)}" %>(税込)</p></br>
-
 
 		            <% if @product.is_active == "販売中" %>
          			    <%= form_for(@cart_item) do |f| %>
@@ -26,9 +28,7 @@
 		            	<p>売り切れ</p>
 		            <% end %>
 		          </td>
-		      </div>
 		    </table>
 		  </div>
 		</div>
 	</div>
-</div>
