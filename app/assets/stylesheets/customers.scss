@@ -5,5 +5,18 @@
 
 .product{
  float:left;
- padding:5px;
+ padding:10px;
+}
+
+.oohara{
+ margin-top:30px;
+ margin-bottom:15px;
+}
+
+.cover {
+  background-image: image-url('cake3.jpg');
+  width:720px;
+  height:520px;
+  background-size:cover;
+  padding-top:50px;
 }
