@@ -43,4 +43,6 @@ class Admins::OrdersController < ApplicationController
 	def order_params
 		params.require(:order).permit(:ordered_status)
 	end
+
+
 end

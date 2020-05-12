@@ -6,6 +6,7 @@
 
 				<!-- 新規追加 -->
 				<%= form_for [:admins, @genre], html: { class: 'form-horizontal' } do |f| %>
+				<%= render 'layouts/error_messages', model: f.object %>
 			    <%= f.label :name, "ジャンル", class: 'col-sm-3 cartion-admin' %>
 			    <div class="col-sm-4"><%= f.text_field :name, class: 'form-control form-admin' %></div>
 			    <div class="col-sm-5">

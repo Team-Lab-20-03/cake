@@ -3,6 +3,7 @@
 		<div class="row card-admin">
 			<h3 class="text-center headline-admin"><strong>商品新規登録</strong></h3>
 			<%= form_for [:admins, @product] do |f| %>
+				<%= render 'layouts/error_messages', model: f.object %>
 				<div class="col-sm-5">
 					<%= f.attachment_field :image %>
 				</div>

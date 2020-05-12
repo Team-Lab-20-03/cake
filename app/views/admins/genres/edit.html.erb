@@ -4,15 +4,16 @@
 			<div class="col-xs-8 col-xs-offset-2">
 				<h3 class="headline-admin"><strong>ジャンル編集</strong></h3>
 				<%= form_for [:admins, @genre], html: { class: 'form-horizontal' } do |f| %>
-			    <%= f.label :name, "ジャンル", class: 'col-sm-3 caption-admin' %>
-			    <div class="col-sm-4"><%= f.text_field :name, class: 'form-control form-admin' %></div>
-			    <div class="col-sm-5">
-				    <%= f.radio_button :is_active, :有効, checked: true %>
-				    <%= f.label :name, "有効", class: 'paragraph-admin', style: "display: inline-block;" %>
-				    <%= f.radio_button :is_active, :無効 %>
-				    <%= f.label :name, "無効", class: 'paragraph-admin', style: "display: inline-block;" %>
-				    <%= f.submit "保存", class: "btn btn-admin" %>
-			    </div>
+					<%= render 'layouts/error_messages', model: f.object %>
+				    <%= f.label :name, "ジャンル", class: 'col-sm-3 caption-admin' %>
+				    <div class="col-sm-4"><%= f.text_field :name, class: 'form-control form-admin' %></div>
+				    <div class="col-sm-5">
+					    <%= f.radio_button :is_active, :有効, checked: true %>
+					    <%= f.label :name, "有効", class: 'paragraph-admin', style: "display: inline-block;" %>
+					    <%= f.radio_button :is_active, :無効 %>
+					    <%= f.label :name, "無効", class: 'paragraph-admin', style: "display: inline-block;" %>
+					    <%= f.submit "保存", class: "btn btn-admin" %>
+				    </div>
 				<% end %>
 			</div>
 		</div>

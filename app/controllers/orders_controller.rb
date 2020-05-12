@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :no_cart_item, only: [:new, :confirm, :create]
 
   def index
     @orders = current_customer.orders.order("created_at DESC")
@@ -25,15 +26,20 @@ class OrdersController < ApplicationController
       @delivery_address = current_customer.main_address
       @delivery_name = current_customer.last_name + current_customer.first_name
       @delivery_param = params[:delivery_address_button]
-    when "登録済住所から選択"
+    when "登録済み住所から選択"
       @delivery_zip_code = Delivery.find(params[:delivery]).zip_code
       @delivery_address = Delivery.find(params[:delivery]).address
       @delivery_name = Delivery.find(params[:delivery]).destination_name
       @delivery_param = params[:delivery_address_button]
     when "新しいお届け先"
-      @delivery_zip_code = params[:delivery_zip_code]
-      @delivery_address = params[:delivery_address]
-      @delivery_name = params[:destination_name]
+      if params[:delivery_zip_code].blank? || params[:delivery_address].blank? || params[:destination_name].blank?
+        @order = Order.new
+        @delivery = Delivery.new
+        render :new
+      end
+      @delivery_zip_code = params[:delivery_zip_code],
+      @delivery_address = params[:delivery_address],
+      @delivery_name = params[:destination_name],
       @delivery_param = params[:delivery_address_button]
     end
   end
@@ -67,6 +73,12 @@ class OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(:total_price, :is_credit, :delivery_name, :delivery_zip_code, :delivery_address)
+  end
+
+  def no_cart_item
+    if current_customer.cart_items.blank?
+      redirect_to products_path
+    end
   end
 
 end

@@ -14,10 +14,11 @@ class Admins::ProductsController < ApplicationController
 	end
 
 	def create
-		@product = Product.new(product_params)
-		if @product.save
-			redirect_to admins_product_path(@product.id)
+		product = Product.new(product_params)
+		if product.save
+			redirect_to admins_product_path(product.id)
 		else
+			@product = product
 			render :new
 		end
 	end
@@ -27,10 +28,11 @@ class Admins::ProductsController < ApplicationController
 	end
 
 	def update
-		@product = Product.find(params[:id])
-		if @product.update(product_params)
-			redirect_to admins_product_path(@product.id)
+		product = Product.find(params[:id])
+		if product.update(product_params)
+			redirect_to admins_product_path(product.id)
 		else
+			@product = product
 			render :edit
 		end
 	end
