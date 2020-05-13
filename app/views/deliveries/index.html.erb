@@ -4,7 +4,8 @@
 
 			<div class="form-horizontal card-delivery">
 				<h3 class="text-center "><strong>配送先登録/一覧</strong></h3>
-				<%= form_for(@delivery) do |f| %>
+				<%= form_for(@delivery, url: deliveries_path, method: :post) do |f| %>
+				<%= render 'layouts/error_messages', model: f.object %>
 					<div class="form-group">
 						<label class="col-sm-3 caption-delivery">郵便番号（ハイフンなし）</label>
 						<div class="col-sm-4">
