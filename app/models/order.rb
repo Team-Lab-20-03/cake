@@ -7,11 +7,6 @@ class Order < ApplicationRecord
 	enum ordered_status: {入金待ち: 0, 入金確認: 1, 製作中: 2, 発送準備中: 3, 発送済み: 4}
 	enum is_credit: {銀行振込: true, クレジットカード: false}
 
-	# バリデーション
-    VALID_ZIP_CODE = /\A\d{3}[-]\d{4}\z/
-    validates :delivery_zip_code, presence: true, format: { with: VALID_ZIP_CODE, message: "はハイフンあり7桁で入力してください。" }
-	validates :delivery_name, presence: true
-	validates :delivery_address, presence: true
 
 
 	# 注文個数
