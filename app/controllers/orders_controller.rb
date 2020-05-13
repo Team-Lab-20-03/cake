@@ -38,9 +38,9 @@ class OrdersController < ApplicationController
         flash[:notice] = "必要事項をご入力ください"
         render :new
       end
-      @delivery_zip_code = params[:delivery_zip_code],
-      @delivery_address = params[:delivery_address],
-      @delivery_name = params[:destination_name],
+      @delivery_zip_code = params[:delivery_zip_code]
+      @delivery_address = params[:delivery_address]
+      @delivery_name = params[:destination_name]
       @delivery_param = params[:delivery_address_button]
     end
   end
