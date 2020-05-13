@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
       if params[:delivery_zip_code].blank? || params[:delivery_address].blank? || params[:destination_name].blank?
         @order = Order.new
         @delivery = Delivery.new
+        flash[:notice] = "必要事項をご入力ください"
         render :new
       end
       @delivery_zip_code = params[:delivery_zip_code],
@@ -78,6 +79,7 @@ class OrdersController < ApplicationController
   def no_cart_item
     if current_customer.cart_items.blank?
       redirect_to products_path
+      flash[:notice] = "カートに入れてから情報入力に進んでください"
     end
   end
 

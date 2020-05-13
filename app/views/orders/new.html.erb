@@ -2,6 +2,7 @@
 	<div class="container">
 		<div class="row card-order">
 			<div class="col-xs-8 col-xs-offset-2 form-horizontal">
+				<%= render 'layouts/notifications' %>
 				<h3 class="text-center headline"><strong>注文情報入力</strong></h3>
 				<%= form_with(url: confirm_orders_path, method: :get, local:true) do |f| %>
 
