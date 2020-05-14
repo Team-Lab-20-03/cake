@@ -1,4 +1,5 @@
-# [ながのCAKE](https://github.com/Team-Lab-20-03/cake/wiki/Introduction)
+# ながのCAKE
+[Introduction!!](https://github.com/Team-Lab-20-03/cake/wiki/Introduction)
 
 ## DMMWEBCAMP学習コンテンツ  学習フェーズⅡ ECサイト制作
 
