@@ -11,20 +11,14 @@ class ProductsController < ApplicationController
       @products = Product.all
     end
 
-      @genre = Genre.all
-
   end
 
   def show
 
+    @genre = Genre.where(is_active: true)# ジャンルが有効のみ
   	@product = Product.find(params[:id])
   	@cart_item = CartItem.new(product_id: @product.id)
-  	@genre = Genre.all
-  end
-
-  private
-  def product_params
-    params.require(:product).permit(:image)
-  end
 
   end
+
+end

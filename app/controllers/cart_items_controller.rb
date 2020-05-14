@@ -6,10 +6,10 @@ class CartItemsController < ApplicationController
 		@customer = current_customer
 	end
 
-	def create
+	def create #カート内アイテム
 		@cart_item = CartItem.find_by(customer_id: current_customer.id, product_id: params[:cart_item][:product_id])
 		if @cart_item
-			@cart_item.quantity += params[:cart_item][:quantity].to_i
+			@cart_item.quantity += params[:cart_item][:quantity].to_i #to_i(integer)
 		else
 			@cart_item = current_customer.cart_items.new(cart_item_params)
 		end

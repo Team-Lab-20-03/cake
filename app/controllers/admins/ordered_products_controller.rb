@@ -15,7 +15,6 @@ class Admins::OrderedProductsController < ApplicationController
 		redirect_to admins_order_path(ordered_product.order.id)
 	end
 
-
 	private
 	def ordered_product_params
 		params.require(:ordered_product).permit(:create_status)
