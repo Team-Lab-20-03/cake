@@ -1,0 +1,15 @@
+<div class="container">
+	<table class="table">
+		<tr>
+			<td style="border:none;"><strong><%= link_to "All Products", products_path, :style=>"color:gray;" %></strong></td>
+		</tr>
+		<% genres.each do |genre| %>
+		<!-- admin側のgenreが有効だった場合 -->
+		<tr>
+			<% if genre.is_active == "有効" %>
+			<td style="border:none;"><strong><%= link_to genre.name, products_path(genre_id: genre.id), :style=>"color:gray;" %></strong></td>
+			<% end %>
+		<% end %>
+		</tr>
+	</table>
+</div>

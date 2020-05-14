@@ -1,0 +1,29 @@
+<div class="bg-admin">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2">
+				<h3 class="text-center headline-admin"><strong>会員一覧</strong></h3>
+				<table class="table table-responsive table-bordered">
+					<tr>
+						<th class="caption-admin">会員ID</th>
+						<th class="caption-admin">氏名</th>
+						<th class="caption-admin">メールアドレス</th>
+						<th class="caption-admin">ステータス</th>
+					</tr>
+					<% @customers.each do |customer| %>
+						<tr>
+							<td class="p-admin"><%= customer.id %></td>
+							<td class="p-admin">
+								<%= link_to admins_customer_path(customer.id) do %>
+									<strong><%= customer.last_name %><%= customer.first_name %></strong>
+								<% end %>
+							</td>
+							<td class="p-admin"><%= customer.email %></td>
+							<td class="p-admin"><%= customer.is_active %></td>
+						</tr>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

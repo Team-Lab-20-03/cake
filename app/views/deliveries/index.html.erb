@@ -1,2 +1,58 @@
-<h1>Deliveries#index</h1>
-<p>Find me in app/views/deliveries/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1">
+
+			<div class="form-horizontal card-delivery">
+				<h3 class="text-center "><strong>配送先登録/一覧</strong></h3>
+				<%= form_for(@delivery, url: deliveries_path, method: :post) do |f| %>
+				<%= render 'layouts/error_messages', model: f.object %>
+					<div class="form-group">
+						<label class="col-sm-3 caption-delivery">郵便番号（ハイフンなし）</label>
+						<div class="col-sm-4">
+							<%= f.text_field :zip_code, class: 'form-control' %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 caption-delivery">住所</label>
+						<div class="col-sm-7">
+							<%= f.text_field :address, class: 'form-control' %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 caption-delivery">宛名</label>
+						<div class="col-sm-4">
+							<%= f.text_field :destination_name, class: 'form-control' %>
+						</div>
+						<span class="col-sm-4 col-sm-offset-1">
+							<%= f.submit '登録する', class:"btn btn-delivery" %>
+						</span>
+					</div>
+
+				<% end %>
+			</div>
+
+			<table class="table table-bordered">
+				<tr>
+					<th class="caption-delivery">郵便番号</th>
+					<th class="caption-delivery">住所</th>
+					<th class="caption-delivery">宛名</th>
+					<th></th>
+				</tr>
+				<% current_customer.deliveries.each do |customer_delivery| %>
+					<tr>
+						<td class="p-delivery"><%= customer_delivery.zip_code %></td>
+						<td class="p-delivery"><%= customer_delivery.address %></td>
+						<td class="p-delivery"><%= customer_delivery.destination_name %></td>
+						<td>
+							<%= link_to "編集する", edit_delivery_path(customer_delivery.id), class:"btn btn-delivery-edit" %>
+							<%= link_to "削除する", delivery_path(customer_delivery.id), method: :delete, class:"btn btn-default" %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+			<%= link_to "マイページへ戻る", customer_path(current_customer.id), class:"btn btn-default" %>
+		</div>
+	</div>
+</div>

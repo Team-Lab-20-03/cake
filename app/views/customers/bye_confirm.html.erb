@@ -1,2 +1,24 @@
-<h1>Customers#bye_confirm</h1>
-<p>Find me in app/views/customers/bye_confirm.html.erb</p>
+<!-- customers/bye_comfirm.html.erb -->
+<div class="container">
+  <div class="row">
+   <div style="text-align:center">
+    <h4><strong>え、、退会するの？？本当にこれでいいの？</strong></h4>
+
+    <p>退会すると、会員登録情報や<br>
+  	   これまでの購入履歴が閲覧できなくなります。<br>
+  	   退会する場合は、「退会する」をクリックしてください。</p>
+
+
+  	  <%= link_to "退会しない", customer_path(current_customer.id), class:"btn btn-success" %>
+
+  	  <%= link_to "退会する", bye_bye_customer_path(@customer.id), method: :patch, class:"btn btn-warning btn-md" %>
+    <div class="oohara">
+      <div style="text-align:center">
+       <%= image_tag 'oohara.jpg', size: "574x402"  %>
+      </div>
+    </div>
+
+   </div>
+  </div>
+</div>
+

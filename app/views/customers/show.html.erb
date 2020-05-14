@@ -1,2 +1,73 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<!-- customers/show.html.erb -->
+<!-- render部分テンプレート -->
+<div class="container">
+	<div class="row">
+		<h3 class="text-center">
+			<mark>
+				<strong><%= current_customer.last_name %> <%= current_customer.first_name %>　</strong>様のマイページ
+			</mark>
+		</h3>
+
+		<div class="cover form-horizontal">
+			<div class="form-group">
+				<label class="col-xs-4 text-center">
+					お客様登録情報
+				</label>
+				<button>
+					<%= link_to "編集する", edit_customer_path(current_customer.id), class: "glyphicon glyphicon-pencil" %>
+				</button>
+				<%= link_to "パスワード変更もしくは忘れた方はこちら", new_customer_password_path(current_customer.id), class: "btn btn-warning btn-xs" %>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4 text-center">氏名</label>
+				<p class="col-xs-4">
+				<%= current_customer.last_name %>　<%= current_customer.first_name %>　様</p>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4 text-center">フリガナ</label>
+				<p class="col-xs-4">
+				<%= current_customer.kana_last_name %>　<%= current_customer.kana_first_name %></p>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4 text-center">メールアドレス</label>
+				<div class="col-xs-4">
+				<%= current_customer.email %></div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4 text-center">郵便番号</label>
+				<div class="col-xs-4">
+				<%= current_customer.main_zip_code %></div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4 text-center">住所</label>
+				<div class="col-xs-4">
+					<%= current_customer.main_address %></div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-4 text-center">電話番号</label>
+				<p class="col-xs-4">
+					<%= current_customer.phone_number %></p>
+			</div>
+
+			<div class="col-xs-8">
+				<div class="group">
+					<label class="col-xs-4 text-center">　配送先</label>
+					<%= link_to "一覧を見る", deliveries_path(current_customer.id), class: "btn btn-info btn-xs" %>
+				</div></br>
+
+				<div class="group">
+					<label class="col-xs-4 text-center">　　注文履歴</label>
+						<%= link_to "一覧を見る", orders_path(current_customer.id), class: "btn btn-info btn-xs" %>
+				</div>
+				<p class="col-xs-offset-8"><strong><%= link_to "戻る", products_path %></strong></p>
+			</div>
+
+		</div><!-- cover -->
+	</div><!-- row -->
+</div><!-- container -->

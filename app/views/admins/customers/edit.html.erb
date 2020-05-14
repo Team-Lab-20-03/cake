@@ -1,0 +1,69 @@
+<div class="bg-admin">
+	<div class="container">
+		<div class="row card-admin">
+			<h3 class="text-center headline-admin"><strong><%= @customer.last_name %> <%= @customer.first_name %></strong> さんの会員情報編集</h3>
+
+			<%= form_for [:admins, @customer], html: { class: 'col-xs-10 col-xs-offset-1 form-horizontal' } do |f| %>
+				<%= render 'layouts/error_messages', model: f.object %>
+				<div class="form-group">
+					<label class="col-sm-3 caption-admin">会員ID</label>
+					<p class="col-sm-1"><strong><%= @customer.id %></strong></p>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 caption-admin">氏名</label>
+					<div class="col-sm-3">
+						<%= f.text_field :last_name, class: 'form-control' %></div>
+					<div class="col-sm-3">
+						<%= f.text_field :first_name, class: 'form-control' %></div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 caption-admin">フリガナ</label>
+					<div class="col-sm-3">
+						<%= f.text_field :kana_last_name, class: 'form-control' %></div>
+					<div class="col-sm-3">
+						<%= f.text_field :kana_first_name, class: 'form-control' %></div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 caption-admin">郵便番号（ハイフンあり）</label>
+					<div class="col-sm-3">
+						<%= f.text_field :main_zip_code, class: 'form-control' %></div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 caption-admin">住所</label>
+					<div class="col-sm-6">
+					<%= f.text_field :main_address, class: 'form-control' %></div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 caption-admin">電話番号（ハイフンなし）</label>
+					<div class="col-sm-3">
+						<%= f.text_field :phone_number, class: 'form-control' %></div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 caption-admin">メールアドレス</label>
+					<div class="col-sm-3">
+						<%= f.text_field :email, class: 'form-control' %></div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 caption-admin">会員ステータス</label>
+					<div class="col-sm-3">
+						<%= f.radio_button :is_active, :有効, checked: true %>
+				    <%= f.label :name, "有効", class: 'p-paragraph', style: "display: inline-block;" %>
+				    <%= f.radio_button :is_active, :退会済み %>
+				    <%= f.label :name, "退会済み", class: 'p-paragraph', style: "display: inline-block;" %>
+			    </div>
+				</div>
+
+				<div class="col-sm-12"></div>
+				<%= f.submit "変更保存", class: 'btn btn-admin col-sm-offset-3' %>
+				<%= link_to "会員詳細に戻る", admins_customer_path(@customer), class: 'btn btn-default' %>
+			<% end %>
+		</div><!-- row -->
+	</div><!-- container -->
+</div>

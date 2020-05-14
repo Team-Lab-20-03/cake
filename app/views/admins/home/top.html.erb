@@ -1,0 +1,18 @@
+<h3 class="text-center"><strong>ー管理者トップー</strong></h3>
+
+
+<div class="container">
+  <div class="row">
+  	<br>
+    <div class="col-sm-8 col-sm-offset-2">
+      <h3>⭐︎本日の注文件数　　<%= link_to @orders.count, admins_orders_path %>件</h3>
+      <!--　本日の注文件数を表示させる -->
+        <p class="text-right"><font face="Arial"><%= link_to "新しい商品登録へ..", new_admins_product_path, class:"btn btn-info btn-lg" %></font></p>
+    </div>
+  </div>
+
+  <div class="image">
+    <%= image_tag 'kanrisya.png', size: "290x410" %>
+  </div>
+</div>
+

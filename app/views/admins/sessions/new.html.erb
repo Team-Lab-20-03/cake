@@ -1,26 +1,31 @@
-<h2>Log in</h2>
+<div class="bg-admin">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 form-horizontal card-admin">
+        <h3 class="text-center headline-admin"><strong><i>管理者ログイン</strong></h3>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+          <div class="form-group">
+            <%= f.label :メールアドレス♪, class: 'col-sm-3 col-sm-offset-2'  %>
+            <div class="col-sm-6">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+            </div>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+          <div class="form-group">
+        　　 <%= f.label :パスワード♪, class: 'col-sm-3 col-sm-offset-2' %>
+        　　 <div class="col-sm-6">
+              <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+            </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+          <div class="form-group">
+            <%= f.submit "ログイン", class: 'btn btn-admin col-sm-4 col-sm-offset-4' %>
+          </div></i>
+        <% end %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+         <%= link_to "パスワード忘れた方はこっちだ。", new_admin_password_path, class: 'col-sm-offset-2' %>
+       </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</div>

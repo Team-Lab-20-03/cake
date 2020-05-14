@@ -1,2 +1,47 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<!-- customers/top.html.erb -->
+<!-- ヘッダー挿入 -->
+<div class="body">
+  <div class="container">
+    <div class="row" Valign=center align=center>
+    <div class="text-center">
+      <h4><%= render "products/genre_search", genres: @genres %></h4>
+    </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="introduction", align="center">
+          <font face="monospace" color="gray">
+          	<h2><strong>Welcome to NaganoCake.com</strong></h2><br>
+             <h4><font color="#FF99CC">感動が集まる場所をもっとハッピーに！</font><br>信州・長野特産フルーツをふんだんに使用した<br>オリジナルCakeの<ins>グローバルオンラインストア</ins>です。<br>
+             会員でない方でも商品の閲覧は可能です！<br>
+             購入には会員登録が必要になります。</h4>
+          </font><!-- monospace -->
+        </div><!-- introduction -->
+      </div><!-- row -->
+
+
+        <div class="recommend">
+          <font face="monospace" align="center" color="gray">
+            <h2><strong>Today's Recommend</strong></h2>
+              <table Valign=center align=center color="gray"><!-- tableの中央に寄せる -->
+                <% @random.each do |product| %><!-- 商品のeachメソッド(ランダム版)入れる -->
+                  <td>
+                    <%= link_to product_path(product.id) do %>
+                      <p><%= attachment_image_tag product, :image, size: "160x160"%></p><!-- :imageのところはカラム名image_idを想定してる。id抜く法則 -->
+                      <p><%= product.name %></p>
+                      <p>¥<%= product.price %>　(税抜)</p>
+                    <% end %><!-- link_toのdoのend -->
+                  </td>
+                <% end %><!-- @randomメソッドのSEKAI NO OWARI -->
+              </table>
+
+            <div class="link", align="right">
+              <%= paginate @products, class: "paginate" %><br><!-- ページネーション -->
+              <ins><%= link_to "もっと見る", products_path %></ins>
+            </div>
+          </font>
+        </div><!-- recommend -->
+    </div><!-- "col-md-12" -->
+
+  </div><!-- container -->
+</div><!-- 全体body -->

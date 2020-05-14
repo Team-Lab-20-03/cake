@@ -1,4 +1,5 @@
 class Admins::OrdersController < ApplicationController
+	before_action :authenticate_admin!
 
 	# 注文履歴一覧
 	def index
@@ -29,11 +30,11 @@ class Admins::OrdersController < ApplicationController
 	def update
 		@order = Order.find(params[:id])
 		@order.update(order_params)
-		# 注文ステータスと製作ステータスの関係
-		# if order.ordered_status == "入金確認"
-		# 	order.ordered_products.each do |ordered_product|
-		# 		ordered_product.update(create_status: "製作待ち")
-		# 	end
+		# 注文ステータスが入金確認 => 製作ステータスを製作待ち
+		if @order.ordered_status == "入金確認"
+			@order.ordered_products.each do |ordered_product|
+				ordered_product.update(create_status: "製作待ち")
+			end
 		end
 		redirect_to admins_order_path(@order)
 	end
@@ -42,4 +43,6 @@ class Admins::OrdersController < ApplicationController
 	def order_params
 		params.require(:order).permit(:ordered_status)
 	end
+
+
 end

@@ -16,3 +16,70 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+    background-image: image-url("white2.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    margin-top: 50px;
+    font-family: 'sans-serif','serif';
+}
+
+header {
+    color:white;
+}
+
+header .navbar-left span {
+    font-size: 25px;
+}
+.main {
+	min-height: 600px;
+}
+
+
+/* admin */
+.headline-admin {
+	color: #333;
+}
+.caption-admin {
+	color: #333;
+}
+.p-admin {
+	color: #5E5E5E;
+}
+.table-admin {
+	background-color: #D5D5D5;
+}
+.card-admin {
+	background-color: #D5D5D5;
+	padding: 20px;
+	margin-bottom: 10px;
+}
+.form-admin {
+	background-color: #D5D5D5;
+}
+.btn-admin {
+	color: #D5D5D5;
+	background-color: #5E5E5E;
+}
+/* admin */
+
+/* EC_signup_signin */
+.headline-sign {
+	color: #333;
+}
+.caption-sign {
+	color: #333;
+}
+.card-sign {
+	background-color: #D5D5D5;
+	padding: 20px;
+}
+.btn-sign {
+	color: #D5D5D5;
+	background-color: #5E5E5E;
+}
+.p-sign {
+	color: #5E5E5E;
+}
+/* EC_signup_signin */
