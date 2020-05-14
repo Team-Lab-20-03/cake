@@ -3,5 +3,6 @@ class Admins::HomeController < ApplicationController
 
   def top
     @orders = Order.where("created_at >= ?", Date.today)
+    # created_atが本日も新しいもの
   end
 end

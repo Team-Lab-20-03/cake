@@ -8,7 +8,6 @@ class CustomersController < ApplicationController
 
   def edit
     @customer = Customer.find(params[:id])
-
   end
 
   def update
@@ -18,17 +17,15 @@ class CustomersController < ApplicationController
   end
 
   def bye_confirm
-
-	@customer = Customer.find(params[:id])
-    # @current_customer.update(params[:id])
-    # redirect_to root_path
+  	@customer = Customer.find(params[:id])
+      # @current_customer.update(params[:id])
+      # redirect_to root_path
   end
 
   def bye_bye
   	@customer = Customer.find(current_customer.id)
   	@customer.update(is_active: '退会済み')
-    reset_session
-
+    reset_session #ログアウトもさせる
     redirect_to root_path
   end
 

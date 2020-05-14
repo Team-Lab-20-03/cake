@@ -10,8 +10,8 @@
     <div class="col-md-12">
       <div class="row">
         <div class="introduction", align="center">
-          <font face="monospace">
-            <h1>ようこそ、NaganoCake.comへ！</h1><br>
+          <font face="monospace" color="gray">
+          	<h2><strong>Welcome to NaganoCake.com</strong></h2><br>
              <h4><font color="#FF99CC">感動が集まる場所をもっとハッピーに！</font><br>信州・長野特産フルーツをふんだんに使用した<br>オリジナルCakeの<ins>グローバルオンラインストア</ins>です。<br>
              会員でない方でも商品の閲覧は可能です！<br>
              購入には会員登録が必要になります。</h4>
@@ -21,9 +21,9 @@
 
 
         <div class="recommend">
-          <font face="monospace" align="center">
-            <h2>〜♪Today's Recommend♪〜</h2>
-              <table Valign=center align=center><!-- tableの中央に寄せる -->
+          <font face="monospace" align="center" color="gray">
+            <h2><strong>Today's Recommend</strong></h2>
+              <table Valign=center align=center color="gray"><!-- tableの中央に寄せる -->
                 <% @random.each do |product| %><!-- 商品のeachメソッド(ランダム版)入れる -->
                   <td>
                     <%= link_to product_path(product.id) do %>

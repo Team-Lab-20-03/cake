@@ -12,5 +12,4 @@ class Delivery < ApplicationRecord
     validates :address, presence: true
     validates :destination_name, presence: true
 
-
 end
