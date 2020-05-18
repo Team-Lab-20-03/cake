@@ -25,13 +25,13 @@ Rails.application.routes.draw do
     get "home/notice" => "home#notice" #home(controller)のnotice(action)
     resources :products, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update] do
-      member do #入れ子で特定のidを伴う場合(member) ※idを付与(root設定)
+      member do #入れ子で特定のidを伴う場合(member) ※idを付与させてる(root設定)
         get "bye_confirm" #get(そこのページへ飛ぶ)
         patch "bye_bye" #update(書き換える)
       end
     end
     resources :orders, only: [:index, :show, :new, :create] do
-      collection do #入れ子で特定のidが必要ない場合(collection)
+      collection do #入れ子で特定のidが必要ない場合(collection) idは付与させてない
         get "thanks"
         get "confirm"
       end

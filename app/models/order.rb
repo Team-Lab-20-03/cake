@@ -14,13 +14,13 @@ class Order < ApplicationRecord
 	# validates :delivery_address, presence: true
 
 
-	# 注文個数
-	def total_count
-		total = 0
+	# 注文個数#購入確定した後の定義
+	def total_count#quantity
+		total = 0#初期値の設定
 		ordered_products.each do |ordered_product|
 			total += ordered_product.quantity
 		end
-		total
+		total#最終的なトータル数量
 	end
 
 	# 注文合計金額
@@ -41,7 +41,7 @@ class Order < ApplicationRecord
 #---------↓　注文前　↓----------
 
 	# 注文前の合計
-	def cart_sum(user)
+	def cart_sum(user)#each文で変数使ってるので、最終的なtotalが必要
 		total = 0
 		user.cart_items.each do |cart_product|
 			total += cart_product.product.tax_price * cart_product.quantity
@@ -49,10 +49,11 @@ class Order < ApplicationRecord
 		total
 	end
 
-	# 注文前の請求金額
+	# 注文前の請求金額#こっちはシンプルに足し算してるだけ。each文で使ってない
 	def total(user)
 		cart_sum(user) + self.postage_price
 	end
+
 
 	# 送料
 	def postage_price

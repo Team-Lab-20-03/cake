@@ -15,7 +15,7 @@ class Customer < ApplicationRecord
  	super && (self.is_active == '有効')
  end
 
-  # カートアイテム内合計
+  # カートアイテム内合計_出力したいだけ
 	def cart_sum
 		total = 0
 		cart_items.each do |cart_product|

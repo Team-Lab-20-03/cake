@@ -2,7 +2,7 @@ class Delivery < ApplicationRecord
 
 	belongs_to :customer
 
-	def destination_info
+	def destination_info#登録済み住所を表示させる
 		self.zip_code + self.address + self.destination_name
 	end
 

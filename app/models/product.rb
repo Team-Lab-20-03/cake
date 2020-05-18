@@ -1,8 +1,8 @@
 class Product < ApplicationRecord
 
-	has_many :cart_items, dependent: :destroy
-	has_many :orderd_products, dependent: :destroy
-	belongs_to :genre
+	has_many :cart_items, dependent: :destroy#商品が色んなカスタマーのカートに入るイメージ
+	has_many :orderd_products, dependent: :destroy#商品に対して色んなカスタマーが注文できるから
+	belongs_to :genre#ジャンルは複数あるでしょ？
 
 	attachment :image
 
